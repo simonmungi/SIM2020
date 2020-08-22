@@ -1,0 +1,5 @@
+1-Dirigirse a la carpeta Debug y ejecutar "TP2.exe"
+2- Presionar el botón "cargar" y dirigirse a la carpeta TP2, luego seleccionar alguno de los archivos .cvs
+3- Ingresar la cantidad de intervalos y presionar "Obtener Frecuencias"
+4- Seleccionar una de las distribuciones deseadas y presionar "Comparar" para verlo graficado.
+5- Seleccionar un tipo de prueba, el nivel de significancia y presionar "Realizar Prueba" para ver si se acepta o rechaza la hipótesis.
