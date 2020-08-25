@@ -100,7 +100,6 @@ namespace TP2_NetFramework
             desviacion = Math.Sqrt(varianza);
         }
 
-
         public void obtenerFrecuencias(double pasos)
         {
             intervalos = new List<double[]>();

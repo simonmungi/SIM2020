@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblVarianza = new System.Windows.Forms.Label();
             this.lblMedia = new System.Windows.Forms.Label();
@@ -90,6 +90,8 @@
             this.txtLambda = new System.Windows.Forms.TextBox();
             this.lblDesviacion = new System.Windows.Forms.Label();
             this.txtSigma = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFrecuencias)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -184,7 +186,7 @@
             "Uniforme",
             "Normal",
             "Exponencial",
-            ""});
+            "Poisson"});
             this.cmbDistribuciones.Location = new System.Drawing.Point(299, 29);
             this.cmbDistribuciones.Name = "cmbDistribuciones";
             this.cmbDistribuciones.Size = new System.Drawing.Size(137, 21);
@@ -469,19 +471,21 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.label16);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(12, 637);
+            this.groupBox5.Location = new System.Drawing.Point(12, 610);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(228, 100);
+            this.groupBox5.Size = new System.Drawing.Size(228, 127);
             this.groupBox5.TabIndex = 42;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Grupo N";
+            this.groupBox5.Text = "Grupo G";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 62);
+            this.label11.Location = new System.Drawing.Point(25, 51);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 13);
             this.label11.TabIndex = 1;
@@ -490,7 +494,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 32);
+            this.label10.Location = new System.Drawing.Point(25, 28);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 13);
             this.label10.TabIndex = 0;
@@ -498,20 +502,20 @@
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(612, 12);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Observado";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Esperado";
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Observado";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Esperado";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(746, 393);
             this.chart1.TabIndex = 43;
             this.chart1.Text = "chart1";
@@ -646,6 +650,24 @@
             this.txtSigma.TabIndex = 32;
             this.txtSigma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigma_KeyPress);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 74);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(118, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "María E. Bordón 71336";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(25, 96);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(174, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Rojas Orosco, Cristian Jesus 72723";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,6 +776,8 @@
         private System.Windows.Forms.TextBox txtLambda;
         private System.Windows.Forms.Label lblDesviacion;
         private System.Windows.Forms.TextBox txtSigma;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }
 
