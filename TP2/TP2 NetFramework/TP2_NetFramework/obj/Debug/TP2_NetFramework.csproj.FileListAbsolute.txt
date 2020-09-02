@@ -20,3 +20,25 @@ C:\Users\Simon\Desktop\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFr
 C:\Users\Simon\Desktop\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.pdb
 C:\Users\Simon\Desktop\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\MathNet.Numerics.dll
 C:\Users\Simon\Desktop\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\MathNet.Numerics.xml
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\TP2_NetFramework.exe.config
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\TP2_NetFramework.exe
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\TP2_NetFramework.pdb
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.dll
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\MathNet.Numerics.dll
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.pdb
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.xml
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\bin\Debug\MathNet.Numerics.xml
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.csprojAssemblyReference.cache
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.Form1.resources
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.Properties.Resources.resources
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.csproj.GenerateResource.cache
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.csproj.CoreCompileInputs.cache
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.csproj.CopyComplete
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.exe
+C:\Users\Cristian Rojas\Desktop\SIM2020\TP2\TP2 NetFramework\TP2_NetFramework\obj\Debug\TP2_NetFramework.pdb

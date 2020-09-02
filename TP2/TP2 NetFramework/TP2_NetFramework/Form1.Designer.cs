@@ -79,8 +79,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFrecuencias)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -436,7 +436,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 749);
+            this.splitter1.Size = new System.Drawing.Size(3, 741);
             this.splitter1.TabIndex = 32;
             this.splitter1.TabStop = false;
             // 
@@ -548,15 +548,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Grupo N";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Simón Mungi 72146";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -566,11 +557,20 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Franco Arroyo 67252";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(25, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(101, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Simón Mungi 72146";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 749);
+            this.ClientSize = new System.Drawing.Size(1307, 741);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.txtEstadistico);
             this.Controls.Add(this.txtGradosLibertad);

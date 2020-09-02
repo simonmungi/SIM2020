@@ -70,10 +70,8 @@ namespace TP2_NetFramework
         {
             n = cantidad;
             muestras = new List<double>();
-
             min = Double.MaxValue;
             max = Double.MinValue;
-
             double sumaTotal = 0;
             double var = 0;
 
@@ -81,7 +79,6 @@ namespace TP2_NetFramework
             {
                 double num = estrategiaDistribucion.generarValor(this);
                 muestras.Add(num);
-
                 if (num < min) { min = num; }
                 if (num > max) { max = num; }
 

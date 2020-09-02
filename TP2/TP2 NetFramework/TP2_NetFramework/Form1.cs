@@ -34,7 +34,7 @@ namespace TP2_NetFramework
 
             fdlg.Title = "Select file";
 
-            fdlg.InitialDirectory = @"c:\";
+            //fdlg.InitialDirectory = @"c:\";
 
             fdlg.FileName = txtFileName.Text;
 
@@ -336,6 +336,7 @@ namespace TP2_NetFramework
                 }
                 else
                 {
+                    Console.WriteLine(gestor.j);
                     if (gestor.estadisticoKS > gestor.ks[gestor.i, gestor.j])
                     {
                         string mensaje = "El estadístico de prueba (" + txtEstadistico.Text + ")" + " es mayor al valor en tabla (" + Convert.ToString(gestor.ks[gestor.i, gestor.j]) + "). La hipótesis nula se rechaza.";

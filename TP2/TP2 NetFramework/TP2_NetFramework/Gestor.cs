@@ -73,8 +73,8 @@ namespace TP2_NetFramework
             {
                 cantidad += 1;
 
-                var linea = reader.ReadLine();
-                var num = Convert.ToDouble(linea);
+                string linea = reader.ReadLine();
+                var num = Convert.ToDouble(linea.Replace(".", ","));
 
                 muestras.Add(num);
 

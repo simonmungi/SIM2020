@@ -38,9 +38,16 @@ namespace TP3.Distribuciones
 
         public double generarValor(Gestor g)
         {
-            Poisson ps = new Poisson(g.lambda, rnd);
-
-            return ps.Sample();
+            double n = -1;
+            double p = 1;
+            double a = Math.Exp(-g.lambda);
+            do
+            {
+                p *= rnd.NextDouble();
+                n++;
+            }
+            while (p >= a);
+            return n;
         }
 
         public EstrategiaPoisson()

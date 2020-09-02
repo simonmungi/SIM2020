@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblVarianza = new System.Windows.Forms.Label();
             this.lblMedia = new System.Windows.Forms.Label();
@@ -74,6 +74,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -90,8 +92,6 @@
             this.txtLambda = new System.Windows.Forms.TextBox();
             this.lblDesviacion = new System.Windows.Forms.Label();
             this.txtSigma = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFrecuencias)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -181,6 +181,7 @@
             // 
             // cmbDistribuciones
             // 
+            this.cmbDistribuciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDistribuciones.FormattingEnabled = true;
             this.cmbDistribuciones.Items.AddRange(new object[] {
             "Uniforme",
@@ -283,7 +284,6 @@
             this.txtIntervalos.Name = "txtIntervalos";
             this.txtIntervalos.Size = new System.Drawing.Size(50, 20);
             this.txtIntervalos.TabIndex = 19;
-            this.txtIntervalos.TextChanged += new System.EventHandler(this.txtIntervalos_TextChanged);
             this.txtIntervalos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIntervalos_KeyPress);
             // 
             // txtPasos
@@ -368,7 +368,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 749);
+            this.splitter1.Size = new System.Drawing.Size(3, 741);
             this.splitter1.TabIndex = 32;
             this.splitter1.TabStop = false;
             // 
@@ -401,6 +401,7 @@
             // 
             // cmbSignificancia
             // 
+            this.cmbSignificancia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSignificancia.Enabled = false;
             this.cmbSignificancia.FormattingEnabled = true;
             this.cmbSignificancia.Location = new System.Drawing.Point(167, 550);
@@ -427,6 +428,7 @@
             // 
             // cmbPrueba
             // 
+            this.cmbPrueba.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPrueba.Enabled = false;
             this.cmbPrueba.FormattingEnabled = true;
             this.cmbPrueba.Items.AddRange(new object[] {
@@ -482,6 +484,24 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Grupo G";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(25, 96);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(174, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Rojas Orosco, Cristian Jesus 72723";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 74);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(118, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "María E. Bordón 71336";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -502,20 +522,20 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(612, 12);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Observado";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Esperado";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Observado";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Esperado";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(746, 393);
             this.chart1.TabIndex = 43;
             this.chart1.Text = "chart1";
@@ -650,29 +670,11 @@
             this.txtSigma.TabIndex = 32;
             this.txtSigma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigma_KeyPress);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(25, 74);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(118, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "María E. Bordón 71336";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(25, 96);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(174, 13);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Rojas Orosco, Cristian Jesus 72723";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label12);

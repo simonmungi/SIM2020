@@ -41,7 +41,6 @@ namespace TP2_NetFramework.Distribuciones
             double r1 = rnd.NextDouble();
 
             return -1/g.lambda*(Math.Log(1-r1));
-
         }
 
         public EstrategiaContinuaExponencial()

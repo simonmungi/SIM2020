@@ -30,8 +30,12 @@ namespace TP2_NetFramework
         //Calcular frecuencias e intervalos
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(txtIntervalos.Text) && !String.IsNullOrWhiteSpace(txtPasos.Text))
+            if (!String.IsNullOrWhiteSpace(txtIntervalos.Text))
             {
+                double pasos = Math.Round((Convert.ToDouble(txtMax.Text) - Convert.ToDouble(txtMin.Text)) / Convert.ToInt32(txtIntervalos.Text), 4);
+                
+                this.txtPasos.Text = pasos.ToString();
+
                 gestor.cantIntervalos = Convert.ToInt32(txtIntervalos.Text);
 
                 gestor.obtenerFrecuencias(Convert.ToDouble(txtPasos.Text));
@@ -43,20 +47,11 @@ namespace TP2_NetFramework
                 actualizarFrecuenciasEsperadas();
 
                 graficarHistogramaEsperado();
+                
             }
             else
             {
                 MessageBox.Show("No ingresó un intervalo.");
-            }
-        }
-
-        //actualizo los pasos si ingreso intervalo
-        private void txtIntervalos_TextChanged(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrWhiteSpace(txtIntervalos.Text))
-            {
-                double pasos = Math.Round((Convert.ToDouble(txtMax.Text) - Convert.ToDouble(txtMin.Text)) / Convert.ToInt32(txtIntervalos.Text), 4);
-                this.txtPasos.Text = pasos.ToString();
             }
         }
 
@@ -110,8 +105,24 @@ namespace TP2_NetFramework
             txtSigma.Text = "";
             txtMu.Text = "";
             txtLambda.Text = "";
-
+            limpiarTest();
             habilitarParametros(cmbDistribuciones.Text);
+        }
+
+        private void limpiarTest()
+        {
+            cmbPrueba.SelectedIndex = -1;
+            txtEstadistico.Text = "";
+            txtGradosLibertad.Text = "";
+            cmbSignificancia.SelectedIndex = -1;
+            chart1.Series.Clear();
+            dataGridView1.DataSource = null;
+            dataGridFrecuencias.Rows.Clear();
+            txtPasos.Text = "";
+            txtVarianza.Text = "";
+            txtMedia.Text = "";
+            txtMax.Text = "";
+            txtMin.Text = "";
         }
 
         //Boton generar
@@ -124,8 +135,9 @@ namespace TP2_NetFramework
 
                 if (validarParametrosVacios() && !String.IsNullOrEmpty(txtCantidad.Text))
                 {
+                    string estrategia = cmbDistribuciones.SelectedItem.ToString();
                     //elijo la estrategia
-                    gestor.estrategiaDistribucion = elegirEstrategia(cmbDistribuciones.SelectedItem.ToString());
+                    gestor.estrategiaDistribucion = elegirEstrategia(estrategia);
 
                     //genero los datos
                     gestor.generarDatos(Convert.ToInt32(txtCantidad.Text));
@@ -138,7 +150,7 @@ namespace TP2_NetFramework
                     txtIntervalos.Enabled = true;
 
                     //los cargo en la grilla
-                    dataGridView1.DataSource = gestor.muestras.Where(x => x != 0).Select((x, index) => new { Num = index + 1, Resultado = Math.Round(x, 4) }).ToList();
+                    dataGridView1.DataSource = gestor.muestras.Select((x, index) => new { Num = index + 1, Resultado = Math.Round(x, 4) }).ToList();
 
                     cmbPrueba.Enabled = true;
                     cmbPrueba.SelectedIndex = -1;
@@ -162,12 +174,10 @@ namespace TP2_NetFramework
 
         private void graficarHistograma()
         {
-
-            chart1.Series["Observado"].Points.Clear();
-
+            chart1.Series.Clear();
+            chart1.Series.Add("Observado");
             for (int i = 0; i < gestor.cantIntervalos; i++)
             {
-
                 string x = gestor.intervMedio[i];
                 chart1.Series["Observado"].Points.AddXY(x, gestor.frecuenciasObservadas[i]);
             }
@@ -176,8 +186,7 @@ namespace TP2_NetFramework
 
         private void graficarHistogramaEsperado()
         {
-            chart1.Series["Esperado"].Points.Clear();
-
+            chart1.Series.Add("Esperado");
             for (int i = 0; i < gestor.cantIntervalos; i++)
             {
                 chart1.Series["Esperado"].Points.Add(gestor.frecuenciasEsperadas[i]);
@@ -187,8 +196,6 @@ namespace TP2_NetFramework
         //Muy lento
         public void llenarGrillaMuestras()
         {
-            dataGridView1.Rows.Clear();
-
             for (int i = 0; i < gestor.n; i++)
             {
                 dataGridView1.Rows.Add(i + 1, gestor.muestras[i]);
@@ -198,10 +205,10 @@ namespace TP2_NetFramework
         public void llenarGrillaFrecuencias()
         {
             dataGridFrecuencias.Rows.Clear();
-           
+
             for (int i = 0; i < gestor.cantIntervalos; i++)
             {
-                dataGridFrecuencias.Rows.Add(i + 1, gestor.intervalos[i][0], gestor.intervalos[i][1], gestor.frecuenciasObservadas[i],gestor.probObservadas[i],gestor.acumProbObservada[i], gestor.frecuenciasEsperadas[i], gestor.probEsperadas[i], gestor.acumProbEsperada[i]);
+                dataGridFrecuencias.Rows.Add(i + 1, gestor.intervalos[i][0], gestor.intervalos[i][1], gestor.frecuenciasObservadas[i], Math.Round(gestor.probObservadas[i],4),Math.Round(gestor.acumProbObservada[i], 4), Math.Round(gestor.frecuenciasEsperadas[i],4), Math.Round(gestor.probEsperadas[i],4), Math.Round(gestor.acumProbEsperada[i],4));
             }
         }
 
@@ -209,11 +216,10 @@ namespace TP2_NetFramework
         //cargo valores a los combobox dependiendo la prueba
         private void cmbPrueba_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestor.cargarChi();
             gestor.cargarKS();
             cmbSignificancia.SelectedIndex = -1;
             cmbSignificancia.Enabled = true;
-
+            
             if (cmbPrueba.SelectedItem == null)
             {
                 cmbSignificancia.SelectedIndex = -1;
@@ -222,40 +228,38 @@ namespace TP2_NetFramework
             else if (cmbPrueba.SelectedItem != null && cmbPrueba.SelectedItem.ToString() == "Chi cuadrado")
             {
                 cmbSignificancia.Items.Clear();
-                cmbSignificancia.Items.Insert(0, "0.005");
-                cmbSignificancia.Items.Insert(1, "0.01");
-                cmbSignificancia.Items.Insert(2, "0.025");
-                cmbSignificancia.Items.Insert(3, "0.05");
-                cmbSignificancia.Items.Insert(4, "0.10");
-                cmbSignificancia.Items.Insert(5, "0.90");
-                cmbSignificancia.Items.Insert(6, "0.95");
-                cmbSignificancia.Items.Insert(7, "0.99");
-                cmbSignificancia.Items.Insert(8, "0.995");
+                cmbSignificancia.Items.Insert(0, "0,005");
+                cmbSignificancia.Items.Insert(1, "0,01");
+                cmbSignificancia.Items.Insert(2, "0,025");
+                cmbSignificancia.Items.Insert(3, "0,05");
+                cmbSignificancia.Items.Insert(4, "0,10");
+                cmbSignificancia.Items.Insert(5, "0,90");
+                cmbSignificancia.Items.Insert(6, "0,95");
+                cmbSignificancia.Items.Insert(7, "0,975");
+                cmbSignificancia.Items.Insert(8, "0,99");
+                cmbSignificancia.Items.Insert(9, "0,995");
 
                 txtEstadistico.Text = Math.Round(gestor.estadisticoCHI, 4).ToString();
-
-                gestor.gradosLibertad = gestor.cantIntervalos - 1;
-
+                validarGradosLibertadTestChi();
             }
             else if (cmbPrueba.SelectedItem != null && cmbPrueba.SelectedItem.ToString() == "K-S")
             {
                 cmbSignificancia.Items.Clear();
-                cmbSignificancia.Items.Insert(0, "0.20");
-                cmbSignificancia.Items.Insert(1, "0.10");
-                cmbSignificancia.Items.Insert(2, "0.05");
-                cmbSignificancia.Items.Insert(3, "0.02");
-                cmbSignificancia.Items.Insert(4, "0.01");
-                cmbSignificancia.Items.Insert(5, "0.005");
-                cmbSignificancia.Items.Insert(6, "0.002");
-                cmbSignificancia.Items.Insert(7, "0.001");
+                cmbSignificancia.Items.Insert(0, "0,20");
+                cmbSignificancia.Items.Insert(1, "0,10");
+                cmbSignificancia.Items.Insert(2, "0,05");
+                cmbSignificancia.Items.Insert(3, "0,02");
+                cmbSignificancia.Items.Insert(4, "0,01");
+                cmbSignificancia.Items.Insert(5, "0,005");
+                cmbSignificancia.Items.Insert(6, "0,002");
+                cmbSignificancia.Items.Insert(7, "0,001");
 
                 txtEstadistico.Text = Math.Round(gestor.estadisticoKS, 4).ToString();
-
-                gestor.gradosLibertad = gestor.cantIntervalos; //en ks los grados de libertad son iguales a la cantidad de intervalos
+                validarGradosLibertadTestKS();
             }
-
-            txtGradosLibertad.Text = Convert.ToString(gestor.gradosLibertad);
+            
         }
+
         private void btnPrueba_Click(object sender, EventArgs e)
         {
 
@@ -264,14 +268,15 @@ namespace TP2_NetFramework
 
                 if(cmbPrueba.Text == "Chi cuadrado")
                 {
-                    if (gestor.estadisticoCHI > gestor.chi[gestor.i, gestor.j])
+                    double chi_test_tabulado = ChiSquared.InvCDF(gestor.gradosLibertad, (1 - double.Parse(cmbSignificancia.Text)));
+                    if (gestor.estadisticoCHI > chi_test_tabulado)
                     {
-                        string mensaje = "El estadístico de prueba (" + txtEstadistico.Text + ")" + " es mayor al valor en tabla (" + Convert.ToString(gestor.chi[gestor.i, gestor.j]) + "). La hipótesis nula se rechaza.";
+                        string mensaje = "El estadístico de prueba (" + txtEstadistico.Text + ")" + " es mayor al valor en tabla (" + Math.Round(chi_test_tabulado, 4).ToString() + "). La hipótesis nula se rechaza.";
                         MessageBox.Show(mensaje);
                     }
                     else
                     {
-                        string mensaje = "El estadístico de prueba (" + txtEstadistico.Text + ")" + " es menor al valor en tabla (" + Convert.ToString(gestor.chi[gestor.i, gestor.j]) + "). La hipótesis nula no se puede rechazar.";
+                        string mensaje = "El estadístico de prueba (" + txtEstadistico.Text + ")" + " es menor al valor en tabla (" + Math.Round(chi_test_tabulado, 4).ToString() + "). La hipótesis nula no se puede rechazar.";
                         MessageBox.Show(mensaje);
                     }
                 }
@@ -306,6 +311,38 @@ namespace TP2_NetFramework
         //*********************************************************  Validaciones  *********************************************************//
 
         //devuelve false cuando no se cargó algún parametro
+        private void validarGradosLibertadTestChi()
+        {
+            switch (cmbDistribuciones.SelectedItem)
+            {
+                case "Normal":
+                    gestor.gradosLibertad = gestor.cantIntervalos - 3;
+                    txtGradosLibertad.Text = gestor.gradosLibertad.ToString();
+                    break;
+                case "Exponencial":
+                    gestor.gradosLibertad = gestor.cantIntervalos - 2;
+                    txtGradosLibertad.Text = gestor.gradosLibertad.ToString();
+                    break;
+                case "Poisson":
+                    gestor.gradosLibertad = gestor.cantIntervalos - 2;
+                    txtGradosLibertad.Text = gestor.gradosLibertad.ToString();
+                    break;
+                case "Uniforme":
+                    gestor.gradosLibertad = gestor.cantIntervalos - 1;
+                    txtGradosLibertad.Text = gestor.gradosLibertad.ToString();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void validarGradosLibertadTestKS()
+        {
+            gestor.gradosLibertad = gestor.cantIntervalos;
+            txtGradosLibertad.Text = gestor.gradosLibertad.ToString();
+            gestor.gradosLibertad = gestor.cantIntervalos - 1;
+        }
+
         public bool validarParametrosVacios()
         {
             switch (cmbDistribuciones.SelectedItem)
