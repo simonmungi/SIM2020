@@ -26,7 +26,6 @@ namespace TP2_NetFramework
             this.gestor = new Gestor();
         }
 
-
         //Calcular frecuencias e intervalos
         private void button1_Click(object sender, EventArgs e)
         {
@@ -144,7 +143,7 @@ namespace TP2_NetFramework
 
                     //Cargo pantalla con datos
                     txtMax.Text = gestor.max.ToString();
-                    txtMin.Text = gestor.min.ToString();
+                    txtMin.Text = gestor.min.ToString("F99").TrimEnd('0');
                     txtMedia.Text = Math.Round(gestor.media, 4).ToString();
                     txtVarianza.Text = Math.Round(gestor.varianza, 4).ToString();
                     txtIntervalos.Enabled = true;
@@ -160,13 +159,11 @@ namespace TP2_NetFramework
                 {
                     MessageBox.Show("No cargó alguno de los parámetros");
                 }
-
             }
             else
             {
                 MessageBox.Show("No seleccionó una distribucion.");
             }
-
         }
 
 

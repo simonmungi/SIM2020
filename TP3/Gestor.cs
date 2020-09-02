@@ -116,11 +116,10 @@ namespace TP2_NetFramework
             //calculo rangos
             for (int i = 1; i < cantIntervalos; i++)
             {
+                double minimo = Math.Round(intervalos.ElementAt(i - 1)[1], 4);
+                double maximo = Math.Round(minimo + pasos, 4);
+                double[] filaIntervalo = { minimo, maximo };
 
-                double min = Math.Round(intervalos.ElementAt(i - 1)[1], 4);
-                double max = Math.Round(min + pasos, 4);
-                double[] filaIntervalo = { min, max };
-                
                 intervalos.Add(filaIntervalo);
             }
 
@@ -154,8 +153,7 @@ namespace TP2_NetFramework
             for (int i = 0; i < cantIntervalos; i++)
             {
                 intervMedio[i] = Convert.ToString(Math.Round((intervalos[i][0] + intervalos[i][1])/2 , 4));
-            }
-           
+            } 
         }
 
 
@@ -200,7 +198,6 @@ namespace TP2_NetFramework
                 { 59.196,  61.754,  65.647,  69.126,  73.291, 107.565, 113.145, 118.136, 124.116, 128.299},
                 { 67.328,  70.065,  74.222,  77.929,  82.358, 118.498, 124.342, 129.561, 135.807, 140.169}};
         }
-
 
         public void cargarKS()
         {
