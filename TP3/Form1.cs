@@ -466,5 +466,23 @@ namespace TP2_NetFramework
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
         }
+
+        private void txtLambda_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189)
+            {
+                MessageBox.Show("No se permite lambda negativo");
+                txtLambda.Text = "";
+            }
+        }
+
+        private void txtSigma_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189)
+            {
+                MessageBox.Show("No se permite sigma negativo");
+                txtSigma.Text = "";
+            }
+        }
     }
 }
