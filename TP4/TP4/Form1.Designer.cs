@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_resetear = new System.Windows.Forms.Button();
             this.ckb_primerosdiezdias = new System.Windows.Forms.CheckBox();
             this.gb_congruencial = new System.Windows.Forms.GroupBox();
             this.btn_valoresPorDefectoCongruencial = new System.Windows.Forms.Button();
@@ -69,7 +70,6 @@
             this.lbl_dias = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_resetear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gb_congruencial.SuspendLayout();
@@ -104,6 +104,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Parámetros";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_resetear
+            // 
+            this.btn_resetear.Location = new System.Drawing.Point(348, 267);
+            this.btn_resetear.Name = "btn_resetear";
+            this.btn_resetear.Size = new System.Drawing.Size(103, 48);
+            this.btn_resetear.TabIndex = 16;
+            this.btn_resetear.Text = "Resetear";
+            this.btn_resetear.UseVisualStyleBackColor = true;
+            this.btn_resetear.Click += new System.EventHandler(this.btn_resetear_Click);
             // 
             // ckb_primerosdiezdias
             // 
@@ -228,6 +238,7 @@
             this.btn_simular.TabIndex = 12;
             this.btn_simular.Text = "Simular";
             this.btn_simular.UseVisualStyleBackColor = true;
+            this.btn_simular.Click += new System.EventHandler(this.btn_simular_Click);
             // 
             // groupBox1
             // 
@@ -471,16 +482,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Integrantes";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btn_resetear
-            // 
-            this.btn_resetear.Location = new System.Drawing.Point(348, 267);
-            this.btn_resetear.Name = "btn_resetear";
-            this.btn_resetear.Size = new System.Drawing.Size(103, 48);
-            this.btn_resetear.TabIndex = 16;
-            this.btn_resetear.Text = "Resetear";
-            this.btn_resetear.UseVisualStyleBackColor = true;
-            this.btn_resetear.Click += new System.EventHandler(this.btn_resetear_Click);
             // 
             // Form1
             // 

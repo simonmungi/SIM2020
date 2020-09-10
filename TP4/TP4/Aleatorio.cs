@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Aleatorio
+    public class Aleatorio
     {
 
         bool bandera;

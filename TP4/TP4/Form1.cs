@@ -12,6 +12,8 @@ namespace TP4
 {
     public partial class Form1 : Form
     {
+        Gestor gestor;
+
         public Form1()
         {
             InitializeComponent();
@@ -96,6 +98,20 @@ namespace TP4
             txt_m.Text = "";
             gb_congruencial.Enabled = false;
             ckb_primerosdiezdias.Enabled = false;
+        }
+
+        private void btn_simular_Click(object sender, EventArgs e)
+        {
+            //inicializo el generador de aleatorios dependiendo el checkbox
+            Aleatorio aleatorio = new Aleatorio(ckb_nroAleatorioCongruencial.Checked, txt_semilla.Text, txt_a.Text, txt_c.Text, txt_m.Text);
+           
+            //inicializo el gestor con los datos de la pantalla
+            gestor = new Gestor(txt_dias.Text,txt_cantidadFrascosPorCompra.Text,txt_cantidadGramosPorFrasco.Text,txt_costoPorFrasco.Text,txt_precioVentaPorCienGramos.Text,txt_stockMaximo.Text,txt_frecuenciaCompra.Text,txt_turnoMañana.Text, txt_turnoTarde.Text);
+            gestor.aleatorio = aleatorio;
+
+            //inciar simulacion
+
+
         }
     }
 }
