@@ -23,6 +23,14 @@ namespace TP4
 
         //
 
+        // 
+        double[,] tabla = new double[2,];
+
+        public double[,] dist = { {Aleatorio}
+        
+        
+        };
+
 
         public Gestor(string dias, string cantFrascos, string gramos, string costoFrasco, string precioVenta, string stockMax, string frecuenciaCompra, string horasM, string horasT)
         {
