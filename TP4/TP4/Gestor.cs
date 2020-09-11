@@ -55,22 +55,19 @@ namespace TP4
 
             //ORDEN
             //|0 Dia| 1 Compra |2 Rand |3 Demora|4 Disponible |5 Disponible (g)
-            
+
             //DEMANDA
             //|6 Rand mañana|7 Rand Normal 1| 8 Rand N 2|9 Demanda M| 10 Demanda T|11 Demanda Total
-            
+
             //VENTAS
             //|12 Ventas (g) |13 Ganancia |14 Acum |15 G Media
-            
+
             //STOCK
             //|16 Stock Remanente (g) |17 Stock rem frascos |18 Porcentaje almacenado|19 Porcentaje dias faltante
-            
+
             //COSTOS
             //|20 Faltante|21 Compra|22 Acumulado
-
-            vector_estados2[0] = vector_estados1[0]++;
-
-          
+            vector_estados2[0]++;
             //---------------------------------ORDEN----------------------------------------------------------//
             // compra
             vector_estados2[1] = vector_estados1[1] == 0 ? _FRECUENCIA_COMPRA : vector_estados1[1] - 1; 
@@ -87,7 +84,7 @@ namespace TP4
             vector_estados2[6] = aleatorio.generarAleatorio();
             vector_estados2[7] = vector_estados2[6] >= 0.5 ? aleatorio.generarAleatorio() : -1;
             vector_estados2[8] = vector_estados2[6] >= 0.5 ? aleatorio.generarAleatorio() : -1;
-            vector_estados2[9] = vector_estados2[1] >= 0.5 ? aleatorio.generarRandNormal(vector_estados2[7], vector_estados2[8], _MEDIA_M, _SIGMA) : 50;
+            vector_estados2[9] = vector_estados2[6] >= 0.5 ? aleatorio.generarRandNormal(vector_estados2[7], vector_estados2[8], _MEDIA_M, _SIGMA) : 50;
             vector_estados2[10] = aleatorio.generarRandExponencial(_MEDIA_T);
             vector_estados2[11] = vector_estados2[10] + vector_estados2[9];
 
@@ -121,7 +118,7 @@ namespace TP4
             _GRAMOS_X_FRASCO = Convert.ToInt32(gramos);
             _COSTO_X_FRASCO = Convert.ToDouble(costoFrasco);
             _PRECIO_VENTA = Convert.ToDouble(precioVenta)/100; //REVISAR
-            _STOCK_MAX = Convert.ToInt32(stockMax);
+            _STOCK_MAX = Convert.ToInt32(stockMax) * Convert.ToInt32(gramos);
             _FRECUENCIA_COMPRA = Convert.ToInt32(frecuenciaCompra);
             _HORAS_MAN = Convert.ToInt32(horasM);
             _HORAS_TAR = Convert.ToInt32(horasT);

@@ -13,7 +13,6 @@ namespace TP4
     public partial class Form1 : Form
     {
         Gestor gestor;
-
         public Form1()
         {
             InitializeComponent();
@@ -113,53 +112,23 @@ namespace TP4
             gestor.aleatorio = aleatorio;
 
             //Condiciones iniciales
-            gestor.vector_estados1[0] = 0;
             gestor.vector_estados1[1] = 0; //ya viene con una compra hecha
             gestor.vector_estados1[16] = gestor._STOCK_INICIAL;
-
-            int cant_filas = 0;
-            if (double.Parse(txt_dias.Text) >= 10000)
-            {
-               cant_filas = (int) double.Parse(txt_dias.Text) / 10000;
-            }
-
+            gestor.vector_estados1[17] = 2;
             //Loop principal
             for (int i=0; i < gestor._DIAS; i++)
             {
-                gestor.simular(i);
-                if (cant_filas != 0)
-				{
-                    //dataGridView1.Rows.Add(gestor.vector_estados1);                    
-                    //dataGridView1.Rows.Insert(i, gestor.vector_estados1);
-                    cant_filas = cant_filas - 1;
-                    this.dataGridView1.DataSource = gestor.vector_estados1.Select(k => new
+                dataGridView1.Rows.Add(1);
+                int j = 0;
+                foreach (double valor in gestor.vector_estados1)
+                {
+                    if (j < 23)
                     {
-                        Dia = gestor.vector_estados1[0],
-                        Compra = gestor.vector_estados1[1],
-                        Rand_demora = gestor.vector_estados1[2],
-                        Demora = gestor.vector_estados1[3],
-                        Disponible_frascos = gestor.vector_estados1[4],
-                        Disponible_gramos = gestor.vector_estados1[5],
-                        Rnd_M = gestor.vector_estados1[6],
-                        Rnd_Normal1 = gestor.vector_estados1[7],
-                        Rnd_Normal2 = gestor.vector_estados1[8],
-                        Demanda_M = gestor.vector_estados1[9],
-                        Demanda_T = gestor.vector_estados1[10],
-                        Total_dia = gestor.vector_estados1[11],
-                        Ventas_g = gestor.vector_estados1[12],
-                        Ganancia = gestor.vector_estados1[13],
-                        Ganancia_acum = gestor.vector_estados1[14],
-                        Ganancia_media = gestor.vector_estados1[15],
-                        Stock_remanente_g = gestor.vector_estados1[16],
-                        Stock_remanente_f = gestor.vector_estados1[17],
-                        Porcentaje_almacenado = gestor.vector_estados1[18],
-                        Porcentaje_Dias_faltante = gestor.vector_estados1[19],
-                        costos_Faltante = gestor.vector_estados1[20],
-                        costos_Compra = gestor.vector_estados1[21],
-                        costos_Acumulado = gestor.vector_estados1[22]
-
-                    }).ToList();                   
-                }                
+                        dataGridView1.Rows[i].Cells[j].Value = valor;
+                    }
+                    j++;
+                }
+                gestor.simular(i);
             }
 
 
@@ -205,7 +174,6 @@ namespace TP4
             foreach(DataGridViewColumn column in dataGridView1.Columns)
 			{
                 column.DataPropertyName = column.Name;
-                column.ValueType = typeof(double);
 			}
         }
 
