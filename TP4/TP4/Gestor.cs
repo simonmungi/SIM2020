@@ -24,6 +24,7 @@ namespace TP4
         double _MEDIA_M = 75;
         double _MEDIA_T = 70;
         double _SIGMA = 15;
+        double _STOCK_INICIAL = 340;
 
         double[] vector_estados1 = new double[24];
         double[] vector_estados2 = new double[24];
@@ -54,6 +55,7 @@ namespace TP4
             //|0 Dia| 1 Rand Mañana | 2 Rand Normal | 3 Rand Normal 2 | 4 demanda Mañana | 5 Demanda tarde | 6 Total dia | 
             //primera fila
             vector_estados1[0] = 0;
+            vector_estados1[11] = _STOCK_INICIAL;
 
 
             for(int i=0; i<_DIAS; i++)
@@ -68,14 +70,20 @@ namespace TP4
                 vector_estados2[6] = vector_estados2[5] + vector_estados2[4];
 
                 //---------------------------------VENTAS----------------------------------------------------------//
-
-
+                vector_estados2[7] = vector_estados2[6] < vector_estados1[11] ? vector_estados2[6] : vector_estados1[11];
+                vector_estados2[8] = vector_estados2[7] * _PRECIO_VENTA;
+                vector_estados2[9] = vector_estados2[8] + vector_estados1[9];
+                vector_estados2[10] =(1/i+1)* (i*vector_estados1[10]+vector_estados2[8]); //Ganancia Media
 
                 //---------------------------------STOCK----------------------------------------------------------//
+
 
                 //---------------------------------COSTOS----------------------------------------------------------//
 
                 //---------------------------------ORDEN----------------------------------------------------------//
+
+
+                vector_estados1 = vector_estados2;
 
             }
         }
