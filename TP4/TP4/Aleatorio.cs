@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    public static class Aleatorio
+    public class Aleatorio
     {
 
         bool bandera;
@@ -37,10 +37,8 @@ namespace TP4
         }
 
 
-        public double generarRandNormal(int media,int sigma)
+        public double generarRandNormal(double r1, double r2, double media,double sigma)
         {
-            double r1 = generarAleatorio();
-            double r2 = generarAleatorio();
 
             double z = Math.Sqrt(-2 * Math.Log(1 - r1)) * Math.Cos(2 * Math.PI * r2);
 
@@ -49,7 +47,7 @@ namespace TP4
             return x;
         }
 
-        public double generarRandExponencial(int media)
+        public double generarRandExponencial(double media)
         {
             double r1 = generarAleatorio();
 
