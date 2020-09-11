@@ -109,8 +109,18 @@ namespace TP4
             gestor = new Gestor(txt_dias.Text,txt_cantidadFrascosPorCompra.Text,txt_cantidadGramosPorFrasco.Text,txt_costoPorFrasco.Text,txt_precioVentaPorCienGramos.Text,txt_stockMaximo.Text,txt_frecuenciaCompra.Text,txt_turnoMañana.Text, txt_turnoTarde.Text);
             gestor.aleatorio = aleatorio;
 
-            //inciar simulacion
+            //Condiciones iniciales
+            gestor.vector_estados1[0] = 0;
+            gestor.vector_estados1[1] = 0; //ya viene con una compra hecha
+            gestor.vector_estados1[16] = gestor._STOCK_INICIAL;
 
+            //Loop principal
+            for(int i=0; i < gestor._DIAS; i++)
+            {
+                gestor.simular(i);
+
+                //agregar gestor.vector_estados1 a la grilla
+            }
 
         }
     }

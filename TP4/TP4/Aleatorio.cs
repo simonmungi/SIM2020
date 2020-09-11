@@ -23,7 +23,6 @@ namespace TP4
             return (c + a * semilla) % m;
         }
 
-
         public double generarAleatorio()
         {
             if (bandera)
@@ -36,10 +35,8 @@ namespace TP4
             }
         }
 
-
         public double generarRandNormal(double r1, double r2, double media,double sigma)
         {
-
             double z = Math.Sqrt(-2 * Math.Log(1 - r1)) * Math.Cos(2 * Math.PI * r2);
 
             double x =media + z * sigma;
