@@ -119,7 +119,7 @@ namespace TP4
             _COSTO_X_FRASCO = Convert.ToDouble(costoFrasco);
             _PRECIO_VENTA = Convert.ToDouble(precioVenta)/100; //REVISAR
             _STOCK_MAX = Convert.ToInt32(stockMax) * Convert.ToInt32(gramos);
-            _FRECUENCIA_COMPRA = Convert.ToInt32(frecuenciaCompra);
+            _FRECUENCIA_COMPRA = Convert.ToInt32(frecuenciaCompra) - 1;
             _HORAS_MAN = Convert.ToInt32(horasM);
             _HORAS_TAR = Convert.ToInt32(horasT);
         }

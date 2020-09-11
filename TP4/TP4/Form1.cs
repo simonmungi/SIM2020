@@ -115,11 +115,10 @@ namespace TP4
             gestor.vector_estados1[1] = 0; //ya viene con una compra hecha
             gestor.vector_estados1[16] = gestor._STOCK_INICIAL;
             gestor.vector_estados1[17] = 2;
+            dataGridView1.Rows.Add(gestor._DIAS);
             //Loop principal
             for (int i=0; i < gestor._DIAS; i++)
-            {
-                dataGridView1.Rows.Add(1);
-                int j = 0;
+            {                int j = 0;
                 foreach (double valor in gestor.vector_estados1)
                 {
                     if (j < 23)
