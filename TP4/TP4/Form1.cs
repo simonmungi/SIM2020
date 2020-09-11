@@ -118,7 +118,8 @@ namespace TP4
             dataGridView1.Rows.Add(gestor._DIAS);
             //Loop principal
             for (int i=0; i < gestor._DIAS; i++)
-            {                int j = 0;
+            {                
+                int j = 0;
                 foreach (double valor in gestor.vector_estados1)
                 {
                     if (j < 23)
