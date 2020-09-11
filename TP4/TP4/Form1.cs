@@ -98,6 +98,9 @@ namespace TP4
             txt_m.Text = "";
             gb_congruencial.Enabled = false;
             ckb_primerosdiezdias.Enabled = false;
+
+
+            limpiar_grilla();
         }
 
         private void btn_simular_Click(object sender, EventArgs e)
@@ -114,14 +117,105 @@ namespace TP4
             gestor.vector_estados1[1] = 0; //ya viene con una compra hecha
             gestor.vector_estados1[16] = gestor._STOCK_INICIAL;
 
-            //Loop principal
-            for(int i=0; i < gestor._DIAS; i++)
+            int cant_filas = 0;
+            if (double.Parse(txt_dias.Text) >= 10000)
             {
-                gestor.simular(i);
-
-                //agregar gestor.vector_estados1 a la grilla
+               cant_filas = (int) double.Parse(txt_dias.Text) / 10000;
             }
 
+            //Loop principal
+            for (int i=0; i < gestor._DIAS; i++)
+            {
+                gestor.simular(i);
+                if (cant_filas != 0)
+				{
+                    //dataGridView1.Rows.Add(gestor.vector_estados1);                    
+                    //dataGridView1.Rows.Insert(i, gestor.vector_estados1);
+                    cant_filas = cant_filas - 1;
+                    this.dataGridView1.DataSource = gestor.vector_estados1.Select(k => new
+                    {
+                        Dia = gestor.vector_estados1[0],
+                        Compra = gestor.vector_estados1[1],
+                        Rand_demora = gestor.vector_estados1[2],
+                        Demora = gestor.vector_estados1[3],
+                        Disponible_frascos = gestor.vector_estados1[4],
+                        Disponible_gramos = gestor.vector_estados1[5],
+                        Rnd_M = gestor.vector_estados1[6],
+                        Rnd_Normal1 = gestor.vector_estados1[7],
+                        Rnd_Normal2 = gestor.vector_estados1[8],
+                        Demanda_M = gestor.vector_estados1[9],
+                        Demanda_T = gestor.vector_estados1[10],
+                        Total_dia = gestor.vector_estados1[11],
+                        Ventas_g = gestor.vector_estados1[12],
+                        Ganancia = gestor.vector_estados1[13],
+                        Ganancia_acum = gestor.vector_estados1[14],
+                        Ganancia_media = gestor.vector_estados1[15],
+                        Stock_remanente_g = gestor.vector_estados1[16],
+                        Stock_remanente_f = gestor.vector_estados1[17],
+                        Porcentaje_almacenado = gestor.vector_estados1[18],
+                        Porcentaje_Dias_faltante = gestor.vector_estados1[19],
+                        costos_Faltante = gestor.vector_estados1[20],
+                        costos_Compra = gestor.vector_estados1[21],
+                        costos_Acumulado = gestor.vector_estados1[22]
+
+                    }).ToList();                   
+                }                
+            }
+
+
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+            // agregando columnas a la grilla
+            //orden 0-5
+            
+            dataGridView1.Columns.Add("Dia", "Dia"); 
+            dataGridView1.Columns.Add("Compra", "Compra");
+            dataGridView1.Columns.Add("Rand_demora", "Random Demora");
+            dataGridView1.Columns.Add("Demora", "Demora");
+            dataGridView1.Columns.Add("Disponible_frascos", "Disponible (frascos)");
+            dataGridView1.Columns.Add("Disponible_gramos", "Disponible (gramos)");
+           
+            // demanda 6-11
+            dataGridView1.Columns.Add("Rnd_M", "Random Mañana");
+            dataGridView1.Columns.Add("Rnd_Normal1", "Random Normal 1");
+            dataGridView1.Columns.Add("Rnd_Normal2", "Random Normal 2");
+            dataGridView1.Columns.Add("Demanda_M", "Demanda Mañana");
+            dataGridView1.Columns.Add("Demanda_T", "Demanda Tarde");
+            dataGridView1.Columns.Add("Total_dia", "Total Dia");
+            
+            // Ventas 12-15
+            dataGridView1.Columns.Add("Ventas_g", "Ventas (gramos)");
+            dataGridView1.Columns.Add("Ganancia", "Ganancia");
+            dataGridView1.Columns.Add("Ganancia_acum", "Ganancia Acum.");
+            dataGridView1.Columns.Add("Ganancia_media", "Ganancia Media");
+            
+            //Stock 16-19
+            dataGridView1.Columns.Add("Stock_remanente_g", "Stock Remante (gramos)");
+            dataGridView1.Columns.Add("Stock_remanente_f", "Stock Remanente (frascos)");
+            dataGridView1.Columns.Add("Porcentaje_almacenado", "Porcentaje almacenado");
+            dataGridView1.Columns.Add("Porcentaje_Dias_faltante", "Porcentaje Dias con Faltante");
+            
+            // Costos 20-22
+            dataGridView1.Columns.Add("costos_Faltante", "Costos Faltante");
+            dataGridView1.Columns.Add("costos_Compra", "Costos Compra");
+            dataGridView1.Columns.Add("costos_Acumulado", "Costos Acumulado");
+
+            foreach(DataGridViewColumn column in dataGridView1.Columns)
+			{
+                column.DataPropertyName = column.Name;
+                column.ValueType = typeof(double);
+			}
         }
-    }
+
+
+        private void limpiar_grilla()
+		{
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+		}
+
+       
+	}
 }

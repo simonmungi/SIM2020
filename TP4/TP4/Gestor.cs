@@ -70,8 +70,10 @@ namespace TP4
 
             vector_estados2[0] = vector_estados1[0]++;
 
+          
             //---------------------------------ORDEN----------------------------------------------------------//
-            vector_estados2[1] = vector_estados1[1] == 0 ? _FRECUENCIA_COMPRA : vector_estados1[1] - 1;
+            // compra
+            vector_estados2[1] = vector_estados1[1] == 0 ? _FRECUENCIA_COMPRA : vector_estados1[1] - 1; 
             vector_estados2[2] = vector_estados2[1] == 0 ? aleatorio.generarAleatorio() : -1;
             if (vector_estados1[3] > 0) { vector_estados2[3] = vector_estados1[3] - 1; } //si la cantidad de dias restantes no es 0, le resto 1
             else {
@@ -93,7 +95,7 @@ namespace TP4
             vector_estados2[12] = vector_estados2[11] < vector_estados1[16] ? vector_estados2[11] : vector_estados1[16];
             vector_estados2[13] = vector_estados2[12] * _PRECIO_VENTA;
             vector_estados2[14] = vector_estados2[13] + vector_estados1[14];
-            vector_estados2[15] =(1/i+1)* (i*vector_estados1[15]+vector_estados2[13]); //Ganancia Media
+            vector_estados2[15] =(1/(i+1))* (i*vector_estados1[15]+vector_estados2[13]); //Ganancia Media
 
             //---------------------------------STOCK----------------------------------------------------------//
             double remanente = vector_estados1[16] - vector_estados2[12] + vector_estados2[5];
