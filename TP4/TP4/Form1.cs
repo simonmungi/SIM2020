@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -118,21 +119,33 @@ namespace TP4
             dataGridView1.Rows.Add(gestor._DIAS);
             //Loop principal
             for (int i=0; i < gestor._DIAS; i++)
-            {                
-                int j = 0;
-                foreach (double valor in gestor.vector_estados1)
-                {
-                    if (j < 23)
-                    {
-                        dataGridView1.Rows[i].Cells[j].Value = valor;
-                    }
-                    j++;
-                }
+            {
+                dataGridView1["Dia", i].Value = gestor.vector_estados1[0];
+                dataGridView1["Compra", i].Value = gestor.vector_estados1[1];
+                dataGridView1["Rand_demora", i].Value = gestor.vector_estados1[2];
+                dataGridView1["Demora", i].Value = gestor.vector_estados1[3];
+                dataGridView1["Disponible_frascos", i].Value = gestor.vector_estados1[4];
+                dataGridView1["Disponible_gramos", i].Value = gestor.vector_estados1[5];
+                dataGridView1["Rnd_M", i].Value = gestor.vector_estados1[6];
+                dataGridView1["Rnd_Normal1", i].Value = gestor.vector_estados1[7];
+                dataGridView1["Rnd_Normal2", i].Value = gestor.vector_estados1[8];
+                dataGridView1["Demanda_M", i].Value = gestor.vector_estados1[9];
+                dataGridView1["Demanda_T", i].Value = gestor.vector_estados1[10];
+                dataGridView1["Total_dia", i].Value = gestor.vector_estados1[11];
+                dataGridView1["Ventas_g", i].Value = gestor.vector_estados1[12];
+                dataGridView1["Ganancia", i].Value = gestor.vector_estados1[13];
+                dataGridView1["Ganancia_acum", i].Value = gestor.vector_estados1[14];
+                dataGridView1["Ganancia_media", i].Value = gestor.vector_estados1[15];
+                dataGridView1["Stock_remanente_g", i].Value = gestor.vector_estados1[16];
+                dataGridView1["Stock_remanente_f", i].Value = gestor.vector_estados1[17];
+                dataGridView1["Porcentaje_almacenado", i].Value = gestor.vector_estados1[18];
+                dataGridView1["Porcentaje_Dias_faltante", i].Value = gestor.vector_estados1[19];
+                dataGridView1["costos_Faltante", i].Value = gestor.vector_estados1[20];
+                dataGridView1["costos_Compra", i].Value = gestor.vector_estados1[21];
+                dataGridView1["costos_Acumulado", i].Value = gestor.vector_estados1[22];
                 gestor.simular(i);
             }
-
-
-		}
+        }
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
