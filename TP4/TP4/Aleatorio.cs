@@ -27,11 +27,11 @@ namespace TP4
         {
             if (bandera)
             {
-                return generarCongruencial(c,a,m,semilla);
+                return Math.Round(generarCongruencial(c,a,m,semilla),3);
             }
             else
             {
-                return rnd.NextDouble();
+                return Math.Round(rnd.NextDouble(),3);
             }
         }
 
@@ -41,7 +41,7 @@ namespace TP4
 
             double x =media + z * sigma;
 
-            return x;
+            return Math.Round(x,3);
         }
 
         public double generarRandExponencial(double media)
@@ -49,7 +49,7 @@ namespace TP4
             double r1 = generarAleatorio();
 
             //la original es -1/lambda, pero lambda es = a 1/media
-            return -1 / (1/media) * (Math.Log(1 - r1));
+            return Math.Round(-1 / (1/media) * (Math.Log(1 - r1)), 3);
         }
 
         //le paso por parametro los datos del form y veo de qué forma genero los aleatorios

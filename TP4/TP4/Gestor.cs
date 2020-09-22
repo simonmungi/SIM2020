@@ -44,7 +44,7 @@ namespace TP4
         {
             for(int i =0; i<vec.Length; i++)
             {
-                if (num >= vec[i, 1] && num < vec[i, 2]) return vec[i, 0];
+                if (num >= vec[i, 1] && num <= vec[i, 2]) return vec[i, 0];
             }
             return -1;
         }
@@ -95,13 +95,13 @@ namespace TP4
             vector_estados2[15] =(1/(i+1))* (i*vector_estados1[15]+vector_estados2[13]); //Ganancia Media
 
             //---------------------------------STOCK----------------------------------------------------------//
-            double remanente = vector_estados1[16] - vector_estados2[12] + vector_estados2[5];
+            double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);
             vector_estados2[16] = (remanente) > _STOCK_MAX ? _STOCK_MAX : remanente;
-            vector_estados2[17] = vector_estados2[16] / _GRAMOS_X_FRASCO;
-            vector_estados2[18] = vector_estados2[16] / _STOCK_MAX;
+            vector_estados2[17] = Math.Round(vector_estados2[16] / _GRAMOS_X_FRASCO,3);
+            vector_estados2[18] = Math.Round(vector_estados2[16] / _STOCK_MAX,3);
 
             //---------------------------------COSTOS----------------------------------------------------------//
-            double faltante = vector_estados1[16] - vector_estados2[11];
+            double faltante = Math.Round(vector_estados1[16] - vector_estados2[11],3);
             vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
             vector_estados2[21] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
             vector_estados2[22] = vector_estados2[21] + vector_estados2[20] + vector_estados1[22];

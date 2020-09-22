@@ -105,6 +105,7 @@ namespace TP4
 
         private void btn_simular_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = tabPage2;
             //inicializo el generador de aleatorios dependiendo el checkbox
             Aleatorio aleatorio = new Aleatorio(ckb_nroAleatorioCongruencial.Checked, txt_semilla.Text, txt_a.Text, txt_c.Text, txt_m.Text);
            
@@ -147,18 +148,24 @@ namespace TP4
             }
         }
 
-		private void Form1_Load(object sender, EventArgs e)
-		{
+        private void Form1_Load(object sender, EventArgs e)
+        {
             // agregando columnas a la grilla
             //orden 0-5
-            
-            dataGridView1.Columns.Add("Dia", "Dia"); 
+
+            dataGridView1.Columns.Add("Dia", "Dia");
             dataGridView1.Columns.Add("Compra", "Compra");
             dataGridView1.Columns.Add("Rand_demora", "Random Demora");
             dataGridView1.Columns.Add("Demora", "Demora");
             dataGridView1.Columns.Add("Disponible_frascos", "Disponible (frascos)");
             dataGridView1.Columns.Add("Disponible_gramos", "Disponible (gramos)");
-           
+
+            dataGridView1.Columns[1].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
+            dataGridView1.Columns[2].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
+            dataGridView1.Columns[3].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
+            dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
+            dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
+
             // demanda 6-11
             dataGridView1.Columns.Add("Rnd_M", "Random Mañana");
             dataGridView1.Columns.Add("Rnd_Normal1", "Random Normal 1");
@@ -166,25 +173,48 @@ namespace TP4
             dataGridView1.Columns.Add("Demanda_M", "Demanda Mañana");
             dataGridView1.Columns.Add("Demanda_T", "Demanda Tarde");
             dataGridView1.Columns.Add("Total_dia", "Total Dia");
-            
+
+            dataGridView1.Columns[6].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+            dataGridView1.Columns[7].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+            dataGridView1.Columns[8].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+            dataGridView1.Columns[9].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+            dataGridView1.Columns[10].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+            dataGridView1.Columns[11].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
+
             // Ventas 12-15
             dataGridView1.Columns.Add("Ventas_g", "Ventas (gramos)");
             dataGridView1.Columns.Add("Ganancia", "Ganancia");
             dataGridView1.Columns.Add("Ganancia_acum", "Ganancia Acum.");
             dataGridView1.Columns.Add("Ganancia_media", "Ganancia Media");
-            
+
+            dataGridView1.Columns[12].HeaderCell.Style.BackColor = Color.FromArgb(146, 208, 80);
+            dataGridView1.Columns[13].HeaderCell.Style.BackColor = Color.FromArgb(146, 208, 80);
+            dataGridView1.Columns[14].HeaderCell.Style.BackColor = Color.FromArgb(146, 208, 80);
+            dataGridView1.Columns[15].HeaderCell.Style.BackColor = Color.FromArgb(44, 208, 0);
+
+
             //Stock 16-19
             dataGridView1.Columns.Add("Stock_remanente_g", "Stock Remante (gramos)");
             dataGridView1.Columns.Add("Stock_remanente_f", "Stock Remanente (frascos)");
             dataGridView1.Columns.Add("Porcentaje_almacenado", "Porcentaje almacenado");
             dataGridView1.Columns.Add("Porcentaje_Dias_faltante", "Porcentaje Dias con Faltante");
-            
+
+            dataGridView1.Columns[16].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[17].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[18].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[19].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+
             // Costos 20-22
             dataGridView1.Columns.Add("costos_Faltante", "Costos Faltante");
             dataGridView1.Columns.Add("costos_Compra", "Costos Compra");
             dataGridView1.Columns.Add("costos_Acumulado", "Costos Acumulado");
 
-            foreach(DataGridViewColumn column in dataGridView1.Columns)
+            dataGridView1.Columns[20].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+            dataGridView1.Columns[21].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+            dataGridView1.Columns[22].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
 			{
                 column.DataPropertyName = column.Name;
 			}
