@@ -98,7 +98,7 @@ namespace TP4
             vector_estados2[14] = vector_estados2[13] + vector_estados1[14];
             if (i != 0)
             {
-                vector_estados2[15] = (1/i)*((i - 1)*vector_estados1[15] + vector_estados2[13]); //Ganancia Media
+                Math.Round(vector_estados2[15] = (1 / (double)i) * ((i - 1) * vector_estados1[15] + vector_estados2[13]), 3); //Ganancia Media
             }
             //---------------------------------STOCK----------------------------------------------------------//
             double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);

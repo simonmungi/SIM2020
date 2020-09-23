@@ -146,9 +146,6 @@ namespace TP4
                 dataGridView1["5_8", i].Value = gestor.vector_estados1[22];
                 dataGridView1["8_mas", i].Value = gestor.vector_estados1[23];
 
-
-
-
                 dataGridView1["costos_Faltante", i].Value = gestor.vector_estados1[24];
                 dataGridView1["costos_Compra", i].Value = gestor.vector_estados1[25];
                 dataGridView1["costos_Acumulado", i].Value = gestor.vector_estados1[26];
