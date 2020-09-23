@@ -26,8 +26,8 @@ namespace TP4
         double _SIGMA = 15;
         public double _STOCK_INICIAL = 340;
 
-        public double[] vector_estados1 = new double[24];
-        public double[] vector_estados2 = new double[24];
+        public double[] vector_estados1 = new double[27];
+        public double[] vector_estados2 = new double[27];
 
         double[,] dist_demora = {{0,0,0.5},
                                  {1,0.5,0.75},
@@ -64,9 +64,10 @@ namespace TP4
 
             //STOCK
             //|16 Stock Remanente (g) |17 Stock rem frascos |18 Porcentaje almacenado|19 Porcentaje dias faltante
+            //|20) 0 a 2 | 21) 2 a 5 | 22) 5 a 8 |23) 8 o más
 
             //COSTOS
-            //|20 Faltante|21 Compra|22 Acumulado
+            //|24) Faltante|25) Compra|26) Acumulado
             vector_estados2[0]++;
             //---------------------------------ORDEN----------------------------------------------------------//
             // compra
@@ -89,20 +90,31 @@ namespace TP4
             vector_estados2[11] = vector_estados2[10] + vector_estados2[9];
 
             //---------------------------------VENTAS----------------------------------------------------------//
-            vector_estados2[12] = vector_estados2[11] < vector_estados1[16] ? vector_estados2[11] : vector_estados1[16];
+            double disponible_dia = (vector_estados1[16] + vector_estados2[5]) > _STOCK_MAX ? _STOCK_MAX : (vector_estados1[16] + vector_estados2[5]);//lo que me quedó de ayer más lo que pudo llegar hoy
+            vector_estados2[12] = vector_estados2[11] < disponible_dia ? vector_estados2[11] : vector_estados1[16];
+            double faltante = (disponible_dia - vector_estados2[11]) < 0 ? (disponible_dia - vector_estados2[11]) : 0;
+
             vector_estados2[13] = vector_estados2[12] * _PRECIO_VENTA;
             vector_estados2[14] = vector_estados2[13] + vector_estados1[14];
-            vector_estados2[15] =(1/(i+1))* (i*vector_estados1[15]+vector_estados2[13]); //Ganancia Media
-
+            if (i != 0)
+            {
+                vector_estados2[15] = (1/i)*((i - 1)*vector_estados1[15] + vector_estados2[13]); //Ganancia Media
+            }
             //---------------------------------STOCK----------------------------------------------------------//
             double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);
             vector_estados2[16] = (remanente) > _STOCK_MAX ? _STOCK_MAX : remanente;
             vector_estados2[17] = Math.Round(vector_estados2[16] / _GRAMOS_X_FRASCO,3);
             vector_estados2[18] = Math.Round(vector_estados2[16] / _STOCK_MAX,3);
 
+
+            vector_estados2[26] = faltante != 0 ? vector_estados2[26] += 1 : vector_estados2[26] += 0; //contador dias con faltante
+            vector_estados2[19] = vector_estados2[26]/(i+1);
+
             //---------------------------------COSTOS----------------------------------------------------------//
-            double faltante = Math.Round(vector_estados1[16] - vector_estados2[11],3);
-            vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
+
+
+            //vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
+            vector_estados2[20] = faltante * _COSTO_FALTANTE;
             vector_estados2[21] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
             vector_estados2[22] = vector_estados2[21] + vector_estados2[20] + vector_estados1[22];
 

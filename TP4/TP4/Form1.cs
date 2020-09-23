@@ -217,6 +217,11 @@ namespace TP4
             dataGridView1.Columns.Add("Stock_remanente_f", "Stock Remanente (frascos)");
             dataGridView1.Columns.Add("Porcentaje_almacenado", "Porcentaje almacenado");
             dataGridView1.Columns.Add("Porcentaje_Dias_faltante", "Porcentaje Dias con Faltante");
+            dataGridView1.Columns.Add("0_2", "0 a 2");
+            dataGridView1.Columns.Add("2_5", "2 a 5");
+            dataGridView1.Columns.Add("5_8", "5 a 8");
+            dataGridView1.Columns.Add("8_mas", "8 o más");
+
 
             dataGridView1.Columns[16].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[17].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
@@ -228,20 +233,24 @@ namespace TP4
             dataGridView1.Columns[18].Width = 70;
             dataGridView1.Columns[19].Width = 70;
 
-            dataGridView1.Columns[18].DefaultCellStyle.Format = "#0%";
+            dataGridView1.Columns[18].DefaultCellStyle.Format = "#0.0%";
+            dataGridView1.Columns[19].DefaultCellStyle.Format = "#0.0%";
 
-            // Costos 20-22
+
+
+
+            // Costos 24-26
             dataGridView1.Columns.Add("costos_Faltante", "Costos Faltante");
             dataGridView1.Columns.Add("costos_Compra", "Costos Compra");
             dataGridView1.Columns.Add("costos_Acumulado", "Costos Acumulado");
 
-            dataGridView1.Columns[20].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
-            dataGridView1.Columns[21].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
-            dataGridView1.Columns[22].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+            dataGridView1.Columns[24].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+            dataGridView1.Columns[25].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+            dataGridView1.Columns[26].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
 
-            dataGridView1.Columns[20].Width = 70;
-            dataGridView1.Columns[21].Width = 70;
-            dataGridView1.Columns[22].Width = 70;
+            dataGridView1.Columns[24].Width = 70;
+            dataGridView1.Columns[25].Width = 70;
+            dataGridView1.Columns[26].Width = 70;
 
 
             foreach (DataGridViewColumn column in dataGridView1.Columns)
