@@ -59,7 +59,7 @@ namespace TP4
             txt_dias.Text = "100000";
             txt_cantidadFrascosPorCompra.Text = "2";
             txt_cantidadGramosPorFrasco.Text = "170";
-            txt_costoPorFrasco.Text = "250";
+            txt_costoPorFrasco.Text = "-250";
             txt_stockMaximo.Text = "10";
             txt_precioVentaPorCienGramos.Text = "150";
             txt_frecuenciaCompra.Text = "2";
@@ -166,6 +166,13 @@ namespace TP4
             dataGridView1.Columns[4].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
             dataGridView1.Columns[5].HeaderCell.Style.BackColor = Color.FromArgb(255, 217, 102);
 
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 70;
+            dataGridView1.Columns[2].Width = 70;
+            dataGridView1.Columns[3].Width = 70;
+            dataGridView1.Columns[4].Width = 70;
+            dataGridView1.Columns[5].Width = 70;
+
             // demanda 6-11
             dataGridView1.Columns.Add("Rnd_M", "Random Mañana");
             dataGridView1.Columns.Add("Rnd_Normal1", "Random Normal 1");
@@ -181,6 +188,14 @@ namespace TP4
             dataGridView1.Columns[10].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
             dataGridView1.Columns[11].HeaderCell.Style.BackColor = Color.FromArgb(189, 215, 238);
 
+            dataGridView1.Columns[6].Width = 70;
+            dataGridView1.Columns[7].Width = 70;
+            dataGridView1.Columns[8].Width = 70;
+            dataGridView1.Columns[9].Width = 70;
+            dataGridView1.Columns[10].Width = 70;
+            dataGridView1.Columns[11].Width = 70;
+
+
             // Ventas 12-15
             dataGridView1.Columns.Add("Ventas_g", "Ventas (gramos)");
             dataGridView1.Columns.Add("Ganancia", "Ganancia");
@@ -192,6 +207,10 @@ namespace TP4
             dataGridView1.Columns[14].HeaderCell.Style.BackColor = Color.FromArgb(146, 208, 80);
             dataGridView1.Columns[15].HeaderCell.Style.BackColor = Color.FromArgb(44, 208, 0);
 
+            dataGridView1.Columns[12].Width = 70;
+            dataGridView1.Columns[13].Width = 70;
+            dataGridView1.Columns[14].Width = 70;
+            dataGridView1.Columns[15].Width = 70;
 
             //Stock 16-19
             dataGridView1.Columns.Add("Stock_remanente_g", "Stock Remante (gramos)");
@@ -204,6 +223,13 @@ namespace TP4
             dataGridView1.Columns[18].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[19].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
 
+            dataGridView1.Columns[16].Width = 70;
+            dataGridView1.Columns[17].Width = 70;
+            dataGridView1.Columns[18].Width = 70;
+            dataGridView1.Columns[19].Width = 70;
+
+            dataGridView1.Columns[18].DefaultCellStyle.Format = "#0%";
+
             // Costos 20-22
             dataGridView1.Columns.Add("costos_Faltante", "Costos Faltante");
             dataGridView1.Columns.Add("costos_Compra", "Costos Compra");
@@ -212,6 +238,10 @@ namespace TP4
             dataGridView1.Columns[20].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
             dataGridView1.Columns[21].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
             dataGridView1.Columns[22].HeaderCell.Style.BackColor = Color.FromArgb(255, 192, 0);
+
+            dataGridView1.Columns[20].Width = 70;
+            dataGridView1.Columns[21].Width = 70;
+            dataGridView1.Columns[22].Width = 70;
 
 
             foreach (DataGridViewColumn column in dataGridView1.Columns)
