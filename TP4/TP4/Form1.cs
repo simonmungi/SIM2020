@@ -99,7 +99,6 @@ namespace TP4
             gb_congruencial.Enabled = false;
             ckb_primerosdiezdias.Enabled = false;
 
-
             limpiar_grilla();
         }
 
@@ -118,6 +117,7 @@ namespace TP4
             gestor.vector_estados1[16] = gestor._STOCK_INICIAL;
             gestor.vector_estados1[17] = 2;
             dataGridView1.Rows.Add(gestor._DIAS);
+           
             //Loop principal
             for (int i=0; i < gestor._DIAS; i++)
             {
@@ -144,12 +144,11 @@ namespace TP4
                 dataGridView1["0_2", i].Value = gestor.vector_estados1[20];
                 dataGridView1["2_5", i].Value = gestor.vector_estados1[21];
                 dataGridView1["5_8", i].Value = gestor.vector_estados1[22];
-                dataGridView1["8_mas", i].Value = gestor.vector_estados1[23];
-
+                dataGridView1["8_mas", i].Value = gestor.vector_estados1[23];   
                 dataGridView1["costos_Faltante", i].Value = gestor.vector_estados1[24];
                 dataGridView1["costos_Compra", i].Value = gestor.vector_estados1[25];
                 dataGridView1["costos_Acumulado", i].Value = gestor.vector_estados1[26];
-                gestor.simular(i);
+                gestor.simular(i);  
             }
         }
 
