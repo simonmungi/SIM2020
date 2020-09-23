@@ -141,9 +141,17 @@ namespace TP4
                 dataGridView1["Stock_remanente_f", i].Value = gestor.vector_estados1[17];
                 dataGridView1["Porcentaje_almacenado", i].Value = gestor.vector_estados1[18];
                 dataGridView1["Porcentaje_Dias_faltante", i].Value = gestor.vector_estados1[19];
-                dataGridView1["costos_Faltante", i].Value = gestor.vector_estados1[20];
-                dataGridView1["costos_Compra", i].Value = gestor.vector_estados1[21];
-                dataGridView1["costos_Acumulado", i].Value = gestor.vector_estados1[22];
+                dataGridView1["0_2", i].Value = gestor.vector_estados1[20];
+                dataGridView1["2_5", i].Value = gestor.vector_estados1[21];
+                dataGridView1["5_8", i].Value = gestor.vector_estados1[22];
+                dataGridView1["8_mas", i].Value = gestor.vector_estados1[23];
+
+
+
+
+                dataGridView1["costos_Faltante", i].Value = gestor.vector_estados1[24];
+                dataGridView1["costos_Compra", i].Value = gestor.vector_estados1[25];
+                dataGridView1["costos_Acumulado", i].Value = gestor.vector_estados1[26];
                 gestor.simular(i);
             }
         }
@@ -222,22 +230,30 @@ namespace TP4
             dataGridView1.Columns.Add("5_8", "5 a 8");
             dataGridView1.Columns.Add("8_mas", "8 o más");
 
-
             dataGridView1.Columns[16].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[17].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[18].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[19].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[20].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[21].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[22].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
+            dataGridView1.Columns[23].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
 
             dataGridView1.Columns[16].Width = 70;
             dataGridView1.Columns[17].Width = 70;
             dataGridView1.Columns[18].Width = 70;
             dataGridView1.Columns[19].Width = 70;
+            dataGridView1.Columns[20].Width = 60;
+            dataGridView1.Columns[21].Width = 60;
+            dataGridView1.Columns[22].Width = 60;
+            dataGridView1.Columns[23].Width = 60;
 
             dataGridView1.Columns[18].DefaultCellStyle.Format = "#0.0%";
             dataGridView1.Columns[19].DefaultCellStyle.Format = "#0.0%";
-
-
-
+            dataGridView1.Columns[20].DefaultCellStyle.Format = "#0.0%";
+            dataGridView1.Columns[21].DefaultCellStyle.Format = "#0.0%";
+            dataGridView1.Columns[22].DefaultCellStyle.Format = "#0.0%";
+            dataGridView1.Columns[23].DefaultCellStyle.Format = "#0.0%";
 
             // Costos 24-26
             dataGridView1.Columns.Add("costos_Faltante", "Costos Faltante");

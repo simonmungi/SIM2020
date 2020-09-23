@@ -26,8 +26,8 @@ namespace TP4
         double _SIGMA = 15;
         public double _STOCK_INICIAL = 340;
 
-        public double[] vector_estados1 = new double[27];
-        public double[] vector_estados2 = new double[27];
+        public double[] vector_estados1 = new double[35];
+        public double[] vector_estados2 = new double[35];
 
         double[,] dist_demora = {{0,0,0.5},
                                  {1,0.5,0.75},
@@ -105,19 +105,26 @@ namespace TP4
             vector_estados2[16] = (remanente) > _STOCK_MAX ? _STOCK_MAX : remanente;
             vector_estados2[17] = Math.Round(vector_estados2[16] / _GRAMOS_X_FRASCO,3);
             vector_estados2[18] = Math.Round(vector_estados2[16] / _STOCK_MAX,3);
+            vector_estados2[30]=faltante != 0 ? vector_estados2[30] += 1 : vector_estados2[30] += 0; //contador dias con faltante
+            vector_estados2[19] = vector_estados2[30] / (i + 1);
 
+            //cuento la cantidad de frascos guardados
+            if (vector_estados2[17] < 2) vector_estados2[31]++;
+            else if (2 <= vector_estados2[17] && vector_estados2[17] < 5) vector_estados2[32]++;
+            else if (5 <= vector_estados2[17] && vector_estados2[17] < 8) vector_estados2[33]++;
+            else if (vector_estados2[17] > 8) vector_estados2[34]++;
 
-            vector_estados2[26] = faltante != 0 ? vector_estados2[26] += 1 : vector_estados2[26] += 0; //contador dias con faltante
-            vector_estados2[19] = vector_estados2[26]/(i+1);
+            vector_estados2[20] = vector_estados2[31]/ (i+1);
+            vector_estados2[21] = vector_estados2[32]/ (i+1);
+            vector_estados2[22] = vector_estados2[33]/ (i+1);
+            vector_estados2[23] = vector_estados2[34]/ (i+1);
 
             //---------------------------------COSTOS----------------------------------------------------------//
 
-
             //vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
-            vector_estados2[20] = faltante * _COSTO_FALTANTE;
-            vector_estados2[21] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
-            vector_estados2[22] = vector_estados2[21] + vector_estados2[20] + vector_estados1[22];
-
+            vector_estados2[24] = faltante * _COSTO_FALTANTE;
+            vector_estados2[25] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
+            vector_estados2[26] = vector_estados2[24] + vector_estados2[25] + vector_estados1[26];
             //-------------------------------------------------------------------------------------------------//
 
             vector_estados1 = vector_estados2;   
