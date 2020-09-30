@@ -26,8 +26,8 @@ namespace TP4
         double _SIGMA = 15;
         public double _STOCK_INICIAL = 340;
 
-        public double[] vector_estados1 = new double[35];
-        public double[] vector_estados2 = new double[35];
+        public double[] vector_estados1 = new double[40];
+        public double[] vector_estados2 = new double[40];
 
         double[,] dist_demora = {{0,0,0.5},
                                  {1,0.5,0.75},
@@ -93,15 +93,15 @@ namespace TP4
 
             //---------------------------------VENTAS----------------------------------------------------------//
             double disponible_dia = (vector_estados1[16] + vector_estados2[5]) > _STOCK_MAX ? _STOCK_MAX : (vector_estados1[16] + vector_estados2[5]);//lo que me quedó de ayer más lo que pudo llegar hoy
-            vector_estados2[12] = vector_estados2[11] < disponible_dia ? vector_estados2[11] : vector_estados1[16];//si la demanda es menor a lo disponible, vendo la demanda, sino lo que hay
+            vector_estados2[12] = vector_estados2[11] < disponible_dia ? vector_estados2[11] : disponible_dia;//si la demanda es menor a lo disponible, vendo la demanda, sino lo que hay
             double faltante = (disponible_dia - vector_estados2[11]) < 0 ? (disponible_dia - vector_estados2[11]) : 0;
 
             vector_estados2[13] = vector_estados2[12] * _PRECIO_VENTA;//ganancia
             vector_estados2[14] = vector_estados2[13] + vector_estados1[14];//acumulada
-            if (i != 0)
-            {
-                Math.Round(vector_estados2[15] = (1 / (double)i) * ((i - 1) * vector_estados1[15] + vector_estados2[13]), 3); //Ganancia Media
-            }
+            
+            
+            vector_estados2[15] = Math.Round((1 / (double)(i +1)) * ((i) * vector_estados1[15] + vector_estados2[13]), 3); //Ganancia Media
+            
             //---------------------------------STOCK----------------------------------------------------------//
             double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);
 
@@ -123,12 +123,35 @@ namespace TP4
             vector_estados2[22] = vector_estados2[33]/ (i+1);
             vector_estados2[23] = vector_estados2[34]/ (i+1);
 
+            // 2-cantidad de café almacenado en promedio al final de cada día           
+            vector_estados2[27] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[27], 3) + vector_estados2[16]), 3);
+            // 3-cantidad de café faltante en promedio por día
+            //cantidad Faltante
+            vector_estados2[28] = faltante;
+            // promedio
+            vector_estados2[29] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[29], 3) + vector_estados2[28]), 3);
+
             //---------------------------------COSTOS----------------------------------------------------------//
 
             //vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
             vector_estados2[24] = faltante * _COSTO_FALTANTE;
             vector_estados2[25] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
             vector_estados2[26] = vector_estados2[24] + vector_estados2[25] + vector_estados1[26];
+
+            //costo de compra de cafe vendido
+            vector_estados2[39] = vector_estados2[12] * (_COSTO_X_FRASCO / _GRAMOS_X_FRASCO);
+            // beneficio diario: ingresos - costo de compra de cafe vendido
+            vector_estados2[37] = vector_estados2[13] + vector_estados2[39];
+            // Promedio beneficio diario
+            vector_estados2[38] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[38], 3) + vector_estados2[37]), 3);
+
+            //-------------------------------------------------------------------------------------------------//
+            //8-Promedio de cuantas se perdieron si se considera que cada turno es de 8 hs y el porcentaje de café faltante            
+            // es  propocional a las horas perdidas del cibercafé
+            //horas con faltante: porcentaje faltante (faltante/Demanda) * cant de horas 
+            vector_estados2[35] = faltante < 0 ? (faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR) : 0;
+            // promedio
+            vector_estados2[36] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[36], 3) + vector_estados2[35]), 3);
             //-------------------------------------------------------------------------------------------------//
 
             vector_estados1 = vector_estados2;   

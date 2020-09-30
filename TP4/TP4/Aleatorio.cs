@@ -37,6 +37,15 @@ namespace TP4
 
         public double generarRandNormal(double r1, double r2, double media,double sigma)
         {
+            if (r1 == 1)
+            {
+                r1 = r1 - 0.001;
+
+            }
+            if (r2 == 1)
+            {
+                r2 = r2 - 0.001;
+            }
             double z = Math.Sqrt(-2 * Math.Log(1 - r1)) * Math.Cos(2 * Math.PI * r2);
 
             double x =media + z * sigma;
@@ -47,6 +56,10 @@ namespace TP4
         public double generarRandExponencial(double media)
         {
             double r1 = generarAleatorio();
+            if (r1 == 1)
+            {
+                r1 = r1 - 0.001;
+            }
 
             //la original es -1/lambda, pero lambda es = a 1/media
             return Math.Round(-1 / (1/media) * (Math.Log(1 - r1)), 3);
@@ -61,6 +74,7 @@ namespace TP4
                 this.a = Convert.ToInt64(a);
                 this.c = Convert.ToInt64(c);
                 this.m = Convert.ToInt64(m);
+                this.bandera = true;
             }
             else
             {
