@@ -97,7 +97,7 @@ namespace TP4
             double faltante = (disponible_dia - vector_estados2[11]) < 0 ? (disponible_dia - vector_estados2[11]) : 0;
 
             vector_estados2[13] = vector_estados2[12] * _PRECIO_VENTA;//ganancia
-            vector_estados2[14] = vector_estados2[13] + vector_estados1[14];//acumulada
+            vector_estados2[14] = Math.Round(vector_estados2[13] + vector_estados1[14],3);//acumulada
             
             
             vector_estados2[15] = Math.Round((1 / (double)(i +1)) * ((i) * vector_estados1[15] + vector_estados2[13]), 3); //Ganancia Media
@@ -139,9 +139,9 @@ namespace TP4
             vector_estados2[26] = vector_estados2[24] + vector_estados2[25] + vector_estados1[26];
 
             //costo de compra de cafe vendido
-            vector_estados2[39] = vector_estados2[12] * (_COSTO_X_FRASCO / _GRAMOS_X_FRASCO);
+            vector_estados2[39] = Math.Round(vector_estados2[12] * (_COSTO_X_FRASCO / _GRAMOS_X_FRASCO),3);
             // beneficio diario: ingresos - costo de compra de cafe vendido
-            vector_estados2[37] = vector_estados2[13] + vector_estados2[39];
+            vector_estados2[37] = Math.Round(vector_estados2[13] + vector_estados2[39],3);
             // Promedio beneficio diario
             vector_estados2[38] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[38], 3) + vector_estados2[37]), 3);
 
@@ -149,7 +149,7 @@ namespace TP4
             //8-Promedio de cuantas se perdieron si se considera que cada turno es de 8 hs y el porcentaje de café faltante            
             // es  propocional a las horas perdidas del cibercafé
             //horas con faltante: porcentaje faltante (faltante/Demanda) * cant de horas 
-            vector_estados2[35] = faltante < 0 ? (faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR) : 0;
+            vector_estados2[35] = faltante < 0 ? Math.Round((faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR),3) : 0;
             // promedio
             vector_estados2[36] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[36], 3) + vector_estados2[35]), 3);
             //-------------------------------------------------------------------------------------------------//

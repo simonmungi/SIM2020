@@ -18,16 +18,17 @@ namespace TP4
         long m;
 
 
-        public double generarCongruencial(long c, long a, long m, long semilla)
+        public double generarCongruencial()
         {
-            return (c + a * semilla) % m;
+            semilla = Convert.ToInt64((a * semilla + c) % m);
+            return (double)semilla / (double)m;
         }
 
         public double generarAleatorio()
         {
             if (bandera)
             {
-                return Math.Round(generarCongruencial(c,a,m,semilla),3);
+                return Math.Round(generarCongruencial(),3);
             }
             else
             {
@@ -68,6 +69,7 @@ namespace TP4
         //le paso por parametro los datos del form y veo de qué forma genero los aleatorios
         public Aleatorio(bool bandera,string semilla, string a, string c, string m)
         {
+            this.bandera = bandera;
             if (bandera)
             {
                 this.semilla = Convert.ToInt64(semilla);
