@@ -382,6 +382,139 @@ namespace TP4
             dataGridView1.Rows.Clear();
         }
 
+        private void txt_dias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
 
+        private void txt_dias_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189){ txt_dias.Text = "";  }
+        }
+
+        private void txt_detalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_detalle_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_detalle.Text = ""; }
+        }
+
+        private void txt_cantidadFrascosPorCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_cantidadFrascosPorCompra_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_cantidadFrascosPorCompra.Text = ""; }
+        }
+
+        private void txt_cantidadGramosPorFrasco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_cantidadGramosPorFrasco_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_cantidadFrascosPorCompra.Text = ""; }
+        }
+
+        private void txt_costoPorFrasco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_precioVentaPorCienGramos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_precioVentaPorCienGramos_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_precioVentaPorCienGramos.Text = ""; }
+        }
+
+        private void txt_stockMaximo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_stockMaximo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_stockMaximo.Text = ""; }
+        }
+
+        private void txt_frecuenciaCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_frecuenciaCompra_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_frecuenciaCompra.Text = ""; }
+        }
+
+        private void txt_turnoMañana_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_turnoMañana_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_turnoMañana.Text = ""; }
+        }
+
+        private void txt_turnoTarde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_turnoTarde_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_turnoTarde.Text = ""; }
+        }
+
+        private void txt_semilla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_semilla_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_semilla.Text = ""; }
+        }
+
+        private void txt_a_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_a_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_a.Text = ""; }
+        }
+
+        private void txt_c_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_c_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_c.Text = ""; }
+        }
+
+        private void txt_m_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsPunctuation(e.KeyChar);
+        }
+
+        private void txt_m_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 189) { txt_m.Text = ""; }
+        }
     }
 }
