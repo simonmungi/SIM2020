@@ -107,6 +107,11 @@ namespace TP4
 
         private void btn_simular_Click(object sender, EventArgs e)
         {
+            if (!validarDatos())
+            {
+                MessageBox.Show("Por favor rellene todos los parametros");
+                return;
+            }
             tabControl1.SelectedTab = tabPage2;
             //inicializo el generador de aleatorios dependiendo el checkbox
             Aleatorio aleatorio = new Aleatorio(ckb_nroAleatorioCongruencial.Checked, txt_semilla.Text, txt_a.Text, txt_c.Text, txt_m.Text);
@@ -171,6 +176,33 @@ namespace TP4
                 }
                 gestor.simular(i);
             }
+        }
+
+        private bool validarDatos()
+        {
+            bool validar = true;
+            if (String.IsNullOrEmpty(txt_dias.Text) || String.IsNullOrEmpty(txt_cantidadFrascosPorCompra.Text) || 
+                String.IsNullOrEmpty(txt_cantidadGramosPorFrasco.Text) || String.IsNullOrEmpty(txt_costoPorFrasco.Text) ||
+                String.IsNullOrEmpty(txt_precioVentaPorCienGramos.Text) || String.IsNullOrEmpty(txt_stockMaximo.Text) ||
+                String.IsNullOrEmpty(txt_frecuenciaCompra.Text))
+            {
+                validar = false;
+            }
+            if (ckb_nroAleatorioCongruencial.Checked)
+            {
+                if(String.IsNullOrEmpty(txt_a.Text) || String.IsNullOrEmpty(txt_c.Text) || String.IsNullOrEmpty(txt_m.Text) || String.IsNullOrEmpty(txt_semilla.Text))
+                {
+                    validar = false;
+                }
+            }
+            if (ckb_detalle.Checked)
+            {
+                if (String.IsNullOrEmpty(txt_detalle.Text))
+                {
+                    validar = false;
+                }
+            }
+            return validar;
         }
 
         private void Form1_Load(object sender, EventArgs e)
