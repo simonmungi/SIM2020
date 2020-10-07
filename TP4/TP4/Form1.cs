@@ -127,7 +127,12 @@ namespace TP4
             //dataGridView1.Rows.Add(gestor._DIAS);
 
             limpiar_grilla();
-
+            if (ckb_detalle.Checked)
+            {
+                if (!String.IsNullOrEmpty(txt_detalle.Text)){
+                    desde = Convert.ToInt32(txt_detalle.Text);
+                }
+            }
             //Loop principal
             int f = 0;
             for (int i = 0; i < gestor._DIAS + 1; i++)

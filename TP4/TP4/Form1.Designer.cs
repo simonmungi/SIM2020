@@ -93,7 +93,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1659, 595);
+            this.tabPage2.Size = new System.Drawing.Size(1502, 595);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Simulación";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1643, 569);
+            this.dataGridView1.Size = new System.Drawing.Size(1488, 569);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage1
@@ -127,7 +127,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1659, 595);
+            this.tabPage1.Size = new System.Drawing.Size(1502, 595);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Parámetros";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Location = new System.Drawing.Point(1283, 20);
+            this.groupBox4.Location = new System.Drawing.Point(1156, 20);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
@@ -211,7 +211,7 @@
             this.gb_congruencial.Controls.Add(this.label9);
             this.gb_congruencial.Controls.Add(this.txt_semilla);
             this.gb_congruencial.Enabled = false;
-            this.gb_congruencial.Location = new System.Drawing.Point(864, 54);
+            this.gb_congruencial.Location = new System.Drawing.Point(822, 54);
             this.gb_congruencial.Margin = new System.Windows.Forms.Padding(4);
             this.gb_congruencial.Name = "gb_congruencial";
             this.gb_congruencial.Padding = new System.Windows.Forms.Padding(4);
@@ -314,7 +314,7 @@
             // ckb_nroAleatorioCongruencial
             // 
             this.ckb_nroAleatorioCongruencial.AutoSize = true;
-            this.ckb_nroAleatorioCongruencial.Location = new System.Drawing.Point(864, 20);
+            this.ckb_nroAleatorioCongruencial.Location = new System.Drawing.Point(822, 20);
             this.ckb_nroAleatorioCongruencial.Margin = new System.Windows.Forms.Padding(4);
             this.ckb_nroAleatorioCongruencial.Name = "ckb_nroAleatorioCongruencial";
             this.ckb_nroAleatorioCongruencial.Size = new System.Drawing.Size(164, 21);
@@ -624,14 +624,14 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1667, 624);
+            this.tabControl1.Size = new System.Drawing.Size(1510, 624);
             this.tabControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1700, 655);
+            this.ClientSize = new System.Drawing.Size(1621, 655);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
