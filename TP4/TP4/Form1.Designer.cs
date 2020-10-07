@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbl_horas_faltantes = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbl_faltantes = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -88,15 +90,26 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbl_horas_faltantes);
             this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.lbl_faltantes);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1502, 595);
+            this.tabPage2.Size = new System.Drawing.Size(1503, 597);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Simulación";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lbl_horas_faltantes
+            // 
+            this.lbl_horas_faltantes.AutoSize = true;
+            this.lbl_horas_faltantes.Location = new System.Drawing.Point(204, 567);
+            this.lbl_horas_faltantes.Name = "lbl_horas_faltantes";
+            this.lbl_horas_faltantes.Size = new System.Drawing.Size(38, 17);
+            this.lbl_horas_faltantes.TabIndex = 2;
+            this.lbl_horas_faltantes.Text = "label";
             // 
             // dataGridView1
             // 
@@ -104,6 +117,9 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(7, 7);
@@ -113,8 +129,17 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1488, 569);
+            this.dataGridView1.Size = new System.Drawing.Size(1489, 535);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // lbl_faltantes
+            // 
+            this.lbl_faltantes.AutoSize = true;
+            this.lbl_faltantes.Location = new System.Drawing.Point(7, 567);
+            this.lbl_faltantes.Name = "lbl_faltantes";
+            this.lbl_faltantes.Size = new System.Drawing.Size(191, 17);
+            this.lbl_faltantes.TabIndex = 1;
+            this.lbl_faltantes.Text = "Promedio de horas perdidas:";
             // 
             // tabPage1
             // 
@@ -127,7 +152,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1502, 595);
+            this.tabPage1.Size = new System.Drawing.Size(1503, 597);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Parámetros";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -618,13 +643,16 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(17, 16);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1510, 624);
+            this.tabControl1.Size = new System.Drawing.Size(1511, 626);
             this.tabControl1.TabIndex = 0;
             // 
             // Form1
@@ -633,14 +661,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1621, 655);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TP 4 - Monte Carlo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -708,6 +735,8 @@
         private System.Windows.Forms.TextBox txt_dias;
         private System.Windows.Forms.Label lbl_dias;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label lbl_faltantes;
+        private System.Windows.Forms.Label lbl_horas_faltantes;
     }
 }
 

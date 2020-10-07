@@ -171,8 +171,8 @@ namespace TP4
                     dataGridView1["Stock_remante_promedio", f].Value = gestor.vector_estados1[27];
                     dataGridView1["Cant_faltante_g", f].Value = gestor.vector_estados1[28];
                     dataGridView1["promedio_faltante", f].Value = gestor.vector_estados1[29];
-                    dataGridView1["promedio_horas_perdidas", f].Value = gestor.vector_estados1[36];
-
+                    dataGridView1["promedio_horas_perdidas_diarias", f].Value = gestor.vector_estados1[35];
+                    
                     dataGridView1["costo_de_cafe_vendido", f].Value = gestor.vector_estados1[39];
                     dataGridView1["beneficio_diario", f].Value = gestor.vector_estados1[37];
                     dataGridView1["beneficio_promedio_diario", f].Value = gestor.vector_estados1[38];
@@ -181,6 +181,7 @@ namespace TP4
                 }
                 gestor.simular(i);
             }
+            lbl_horas_faltantes.Text = Convert.ToString(gestor.vector_estados1[36]) + " hs";
         }
 
         private bool validarDatos()
@@ -328,7 +329,7 @@ namespace TP4
             dataGridView1.Columns.Add("Stock_remante_promedio", "Cant Prom de café almacenada al final del día");
             dataGridView1.Columns.Add("Cant_faltante_g", "Cantidad de Café Faltante");
             dataGridView1.Columns.Add("promedio_faltante", "Cant Prom de Café faltante");
-            dataGridView1.Columns.Add("promedio_horas_perdidas", "Promedio de horas perdidas");
+            dataGridView1.Columns.Add("promedio_horas_perdidas_diarias", "Cant de horas perdidas por dia");
 
             dataGridView1.Columns[27].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
             dataGridView1.Columns[28].HeaderCell.Style.BackColor = Color.FromArgb(248, 203, 173);
@@ -401,7 +402,7 @@ namespace TP4
             dataGridView1.Columns["5_8"].DisplayIndex = 25;
             dataGridView1.Columns["8_mas"].DisplayIndex = 26;
 
-            dataGridView1.Columns["promedio_horas_perdidas"].DisplayIndex = 27;
+            dataGridView1.Columns["promedio_horas_perdidas_diarias"].DisplayIndex = 27;
 
             // Costos  y beneficio
             dataGridView1.Columns["costos_Faltante"].DisplayIndex = 28;

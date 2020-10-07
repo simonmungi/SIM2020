@@ -148,10 +148,12 @@ namespace TP4
             //-------------------------------------------------------------------------------------------------//
             //8-Promedio de cuantas se perdieron si se considera que cada turno es de 8 hs y el porcentaje de café faltante            
             // es  propocional a las horas perdidas del cibercafé
-            //horas con faltante: porcentaje faltante (faltante/Demanda) * cant de horas 
-            vector_estados2[35] = faltante < 0 ? Math.Round((faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR),3) : 0;
+            //horas con faltante: porcentaje faltante (faltante/Demanda) * cant de horas
+            // proporcion de horas perdidas en el dia
+            vector_estados2[35] = faltante < 0 ? Math.Abs(Math.Round((faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR),3)) : 0;
+
             // promedio
-            vector_estados2[36] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[36], 3) + vector_estados2[35]), 3);
+            vector_estados2[36] = Math.Abs(Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[36], 3) + vector_estados2[35]), 3));
             //-------------------------------------------------------------------------------------------------//
 
             vector_estados1 = vector_estados2;   
