@@ -15,12 +15,12 @@ namespace TP4
         int _CANT_FRASCOS;
         int _GRAMOS_X_FRASCO;
         double _COSTO_X_FRASCO;
-        double _PRECIO_VENTA; //REVISAR -> LO MISMO QUE _COSTO_FALTANTE
+        double _PRECIO_VENTA;
         double _STOCK_MAX;
         int _FRECUENCIA_COMPRA;
         int _HORAS_MAN;
         int _HORAS_TAR;
-        double _COSTO_FALTANTE = 1; //REVISAR -> ORIGINAL ES $100 POR 100g NO SE SI ASÍ ESTÁ BIEN 
+        double _COSTO_FALTANTE = 1; 
         double _MEDIA_M = 75;
         double _MEDIA_T = 70;
         double _SIGMA = 15;
@@ -34,7 +34,7 @@ namespace TP4
                                  {2,0.75,1},
         };
 
-        //CREO QUE NO HACE FALTA, CON PREGUNTAR SI ES >= 0.5 ALCANZA
+        //CON PREGUNTAR SI ES >= 0.5 ALCANZA
         //si es 1 -> 50 g, si es 2 -> dist normal 
         double[,] dist_demanda_m = {{1,0,0.5},
                                    {2,0.5,1},
@@ -51,26 +51,12 @@ namespace TP4
 
         public void simular(int i)
         {
-            //Ordenado igual que en el Excel
 
-            //ORDEN
-            //|0 Dia| 1 Compra |2 Rand |3 Demora|4 Disponible |5 Disponible (g)
-
-            //DEMANDA
-            //|6 Rand mañana|7 Rand Normal 1| 8 Rand N 2|9 Demanda M| 10 Demanda T|11 Demanda Total
-
-            //VENTAS
-            //|12 Ventas (g) |13 Ganancia |14 Acum |15 G Media
-
-            //STOCK
-            //|16 Stock Remanente (g) |17 Stock rem frascos |18 Porcentaje almacenado|19 Porcentaje dias faltante
-            //|20) 0 a 2 | 21) 2 a 5 | 22) 5 a 8 |23) 8 o más
-
-            //COSTOS
-            //|24) Faltante|25) Compra|26) Acumulado
             vector_estados2[0]++;
 
             //---------------------------------ORDEN----------------------------------------------------------//
+            //|0 Dia| 1 Compra |2 Rand |3 Demora|4 Disponible |5 Disponible (g)
+
             // compra
             vector_estados2[1] = vector_estados1[1] == 0 ? _FRECUENCIA_COMPRA : vector_estados1[1] - 1; //cuando es 0 se realiza compra, sino se resta un dia
             vector_estados2[2] = vector_estados2[1] == 0 ? aleatorio.generarAleatorio() : -1; //si se realizo compra genero un random
@@ -84,6 +70,8 @@ namespace TP4
             vector_estados2[5] = vector_estados2[4] * _GRAMOS_X_FRASCO;
 
             //----------------------------------DEMANDA---------------------------------------------------------//
+            //|6 Rand mañana|7 Rand Normal 1| 8 Rand N 2|9 Demanda M| 10 Demanda T|11 Demanda Total
+
             vector_estados2[6] = aleatorio.generarAleatorio();
             vector_estados2[7] = vector_estados2[6] >= 0.5 ? aleatorio.generarAleatorio() : -1;//no hace falta mostrarlo
             vector_estados2[8] = vector_estados2[6] >= 0.5 ? aleatorio.generarAleatorio() : -1;//no hace falta mostrarlo
@@ -92,25 +80,32 @@ namespace TP4
             vector_estados2[11] = vector_estados2[10] + vector_estados2[9];//demanda total
 
             //---------------------------------VENTAS----------------------------------------------------------//
+            //|12 Ventas (g) |13 Ganancia |14 Acum |15 G Media 
+
             double disponible_dia = (vector_estados1[16] + vector_estados2[5]) > _STOCK_MAX ? _STOCK_MAX : (vector_estados1[16] + vector_estados2[5]);//lo que me quedó de ayer más lo que pudo llegar hoy
             vector_estados2[12] = vector_estados2[11] < disponible_dia ? vector_estados2[11] : disponible_dia;//si la demanda es menor a lo disponible, vendo la demanda, sino lo que hay
-            double faltante = (disponible_dia - vector_estados2[11]) < 0 ? (disponible_dia - vector_estados2[11]) : 0;
+            double faltante = (disponible_dia - vector_estados2[11]) < 0 ? (disponible_dia - vector_estados2[11]) : 0;//disponible - demanda total del dia es menor a cero?
 
             vector_estados2[13] = vector_estados2[12] * _PRECIO_VENTA;//ganancia
             vector_estados2[14] = Math.Round(vector_estados2[13] + vector_estados1[14],3);//acumulada
             
             
             vector_estados2[15] = Math.Round((1 / (double)(i +1)) * ((i) * vector_estados1[15] + vector_estados2[13]), 3); //Ganancia Media
-            
+
             //---------------------------------STOCK----------------------------------------------------------//
-            double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);
+
+            //|16 Stock Remanente (g) |17 Stock rem frascos |18 Porcentaje almacenado
+            //|19 Porcentaje dias faltante |20) 0 a 2 | 21) 2 a 5 |22) 5 a 8  |23) 8 o más
+            //|27) Stock remanente promedio | 28) Cantidad faltante en gramos | 29) Promedio faltante 
+
+            double remanente = Math.Round(vector_estados1[16] - vector_estados2[12] + vector_estados2[5],3);//remanente de ayer - ventas de hoy + lo que llegó
 
             vector_estados2[16] = (remanente) > _STOCK_MAX ? _STOCK_MAX : remanente;
             vector_estados2[17] = Math.Round(vector_estados2[16] / _GRAMOS_X_FRASCO,3);
             vector_estados2[18] = Math.Round(vector_estados2[16] / _STOCK_MAX,3);
             
             vector_estados2[30]=faltante != 0 ? vector_estados2[30] += 1 : vector_estados2[30] += 0; //contador dias con faltante
-            vector_estados2[19] = vector_estados2[30] / (i + 1);
+            vector_estados2[19] = vector_estados2[30] / (i + 1);//porcentaje dias con faltante
 
             //cuento la cantidad de frascos guardados
             if (vector_estados2[17] < 2) vector_estados2[31]++;
@@ -126,16 +121,15 @@ namespace TP4
             // 2-cantidad de café almacenado en promedio al final de cada día           
             vector_estados2[27] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[27], 3) + vector_estados2[16]), 3);
             // 3-cantidad de café faltante en promedio por día
-            //cantidad Faltante
             vector_estados2[28] = faltante;
             // promedio
             vector_estados2[29] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[29], 3) + vector_estados2[28]), 3);
 
             //---------------------------------COSTOS----------------------------------------------------------//
+            //24) Costos por faltante  | 25) Costos compra  | 26) Costos acumulados |37) beneficio diario  | 38) beneficio promedio | 39) Costo de cafe vendido
 
-            //vector_estados2[20] = faltante < 0 ? faltante * _COSTO_FALTANTE : 0;
             vector_estados2[24] = faltante * _COSTO_FALTANTE;
-            vector_estados2[25] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0;
+            vector_estados2[25] = vector_estados2[1] == 0 ? vector_estados2[4] * _COSTO_X_FRASCO : 0; //compra = 0 (se realizo compra?) Disponible * costo 
             vector_estados2[26] = vector_estados2[24] + vector_estados2[25] + vector_estados1[26];
 
             //costo de compra de cafe vendido
@@ -146,12 +140,10 @@ namespace TP4
             vector_estados2[38] = Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[38], 3) + vector_estados2[37]), 3);
 
             //-------------------------------------------------------------------------------------------------//
-            //8-Promedio de cuantas se perdieron si se considera que cada turno es de 8 hs y el porcentaje de café faltante            
-            // es  propocional a las horas perdidas del cibercafé
+            
+            //8-Promedio de cuantas se perdieron
             //horas con faltante: porcentaje faltante (faltante/Demanda) * cant de horas
-            // proporcion de horas perdidas en el dia
             vector_estados2[35] = faltante < 0 ? Math.Abs(Math.Round((faltante / vector_estados2[11]) * (_HORAS_MAN + _HORAS_TAR),3)) : 0;
-
             // promedio
             vector_estados2[36] = Math.Abs(Math.Round((1 / (double)(i + 1)) * (Math.Round((i) * vector_estados1[36], 3) + vector_estados2[35]), 3));
             //-------------------------------------------------------------------------------------------------//
@@ -165,7 +157,7 @@ namespace TP4
             _CANT_FRASCOS = Convert.ToInt32(cantFrascos);
             _GRAMOS_X_FRASCO = Convert.ToInt32(gramos);
             _COSTO_X_FRASCO = Convert.ToDouble(costoFrasco);
-            _PRECIO_VENTA = Convert.ToDouble(precioVenta)/100; //REVISAR
+            _PRECIO_VENTA = Convert.ToDouble(precioVenta)/100; 
             _STOCK_MAX = Convert.ToInt32(stockMax) * Convert.ToInt32(gramos);
             _FRECUENCIA_COMPRA = Convert.ToInt32(frecuenciaCompra) - 1;
             _HORAS_MAN = Convert.ToInt32(horasM);

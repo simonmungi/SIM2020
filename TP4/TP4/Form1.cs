@@ -112,6 +112,7 @@ namespace TP4
                 MessageBox.Show("Por favor rellene todos los parametros");
                 return;
             }
+
             tabControl1.SelectedTab = tabPage2;
             //inicializo el generador de aleatorios dependiendo el checkbox
             Aleatorio aleatorio = new Aleatorio(ckb_nroAleatorioCongruencial.Checked, txt_semilla.Text, txt_a.Text, txt_c.Text, txt_m.Text);
@@ -419,6 +420,8 @@ namespace TP4
         {
             dataGridView1.Rows.Clear();
         }
+
+        //##############################################  VALIDACIONES  ##############################################//
 
         private void txt_dias_KeyPress(object sender, KeyPressEventArgs e)
         {
