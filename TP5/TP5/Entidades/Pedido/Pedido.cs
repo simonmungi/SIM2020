@@ -88,13 +88,13 @@ namespace TP5.Entidades.Pedido
             return probAcumuladas;
         }
 
+        //Esto es para debuggear nomas
         public String toString()
         {
             String cadena = "Pedido:" + nombre + "| Cantidad:" + cantidad + "|Costo:" + costo + "|Demora: " + demora;
 
             return cadena;
 
-        
         }
 
         public virtual void calcularDemora() { }

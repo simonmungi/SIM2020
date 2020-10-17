@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP5.Entidades.StateCliente
+namespace TP5.Entidades.StateServidor
 {
-    class EstadoCliente
+    class Libre
     {
     }
 }

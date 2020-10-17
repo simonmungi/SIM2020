@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Evento\Evento.cs" />
+    <Compile Include="Entidades\Evento\FinPreparacionServ1.cs" />
+    <Compile Include="Entidades\Evento\FinPreparacionServ2.cs" />
+    <Compile Include="Entidades\Evento\FinPreparacionServ3.cs" />
+    <Compile Include="Entidades\Evento\FinTurno.cs" />
+    <Compile Include="Entidades\Evento\InicioTurno.cs" />
+    <Compile Include="Entidades\Evento\NuevoPedido.cs" />
     <Compile Include="Entidades\Pedido\Empanada.cs" />
     <Compile Include="Entidades\Pedido\Hamburguesa.cs" />
     <Compile Include="Entidades\Pedido\Lomito.cs" />
@@ -55,8 +60,14 @@
     <Compile Include="Entidades\Pedido\Pizza.cs" />
     <Compile Include="Entidades\Pedido\Sandwich.cs" />
     <Compile Include="Entidades\Servidor.cs" />
-    <Compile Include="Entidades\StateCliente\EstadoCliente.cs" />
+    <Compile Include="Entidades\StatePedido\Cancelado.cs" />
+    <Compile Include="Entidades\StatePedido\EnProceso.cs" />
+    <Compile Include="Entidades\StatePedido\Entregado.cs" />
+    <Compile Include="Entidades\StatePedido\EstadoPedido.cs" />
+    <Compile Include="Entidades\StatePedido\PendienteEntrega.cs" />
     <Compile Include="Entidades\StateServidor\EstadoServidor.cs" />
+    <Compile Include="Entidades\StateServidor\Libre.cs" />
+    <Compile Include="Entidades\StateServidor\Ocupado.cs" />
     <Compile Include="Pantalla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +107,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entidades\StatePedido\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP5.Entidades
+namespace TP5.Entidades.Evento
 {
-    public class Cliente
+    class FinPreparacionServ3 : Evento
     {
     }
 }
