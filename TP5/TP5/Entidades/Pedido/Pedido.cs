@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
+using TP5.Generadores;
 
 namespace TP5.Entidades.Pedido
 {
@@ -23,6 +24,7 @@ namespace TP5.Entidades.Pedido
         protected double cantidad;
         protected string nombre;
 
+        protected Generador generador;
         //private EstadoPedido estadoPedido;
 
 
@@ -30,7 +32,6 @@ namespace TP5.Entidades.Pedido
         {
             acumuladas = obtenerAcumuladas();
             rand = new Random();
-
         }
 
 

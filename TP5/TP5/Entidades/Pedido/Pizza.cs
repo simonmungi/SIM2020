@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP5.Generadores;
 
 namespace TP5.Entidades.Pedido
 {
     class Pizza : Pedido
     {
         double costoPizza = 250;
+        double a = 15;
+        double b = 18;
 
         public Pizza()
         {
+            generador = new Uniforme();
             nombre = "Pizza";
             calcularCantidad();
             calcularDemora();
@@ -26,7 +30,7 @@ namespace TP5.Entidades.Pedido
         public override void calcularDemora()
         {
             //UNIFORME
-            demora = 2222;
+            demora = generador.generar(a,b);
         }
     }
 }
