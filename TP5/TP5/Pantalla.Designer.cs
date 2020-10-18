@@ -103,7 +103,7 @@
             this.TiempoEntregaDelivery,
             this.FinProximaEntregaDelivery,
             this.ColaDelivery});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 312);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 289);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1346, 425);

@@ -11,7 +11,6 @@ namespace TP5.Entidades
     class Cocinero : Servidor
     {
         public static int contador = 1;
-        public static int stack { get; set; }
         
         public Cocinero()
         {

@@ -14,7 +14,5 @@ namespace TP5.Entidades.Eventos
             tiempo = t;
         }
 
-
-
     }
 }
