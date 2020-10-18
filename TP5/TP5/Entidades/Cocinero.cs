@@ -17,7 +17,7 @@ namespace TP5.Entidades
         {
             nombre = "Cocinero" + contador;
             contador++;
-            //estado = new Libre();
+            estado = new Libre();
         }
 
 

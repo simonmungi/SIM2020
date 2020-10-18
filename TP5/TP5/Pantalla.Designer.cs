@@ -57,12 +57,14 @@
             this.ColaCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TiempoPrepacionCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoPreparacionCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProximoFinCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColaCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PedidoDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoEntregaDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinProximaEntregaDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColaDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cantSim.SuspendLayout();
             this.SuspendLayout();
@@ -93,12 +95,14 @@
             this.ColaCocinero2,
             this.EstadoCocinero3,
             this.PedidoCocinero3,
-            this.TiempoPrepacionCocinero3,
+            this.TiempoPreparacionCocinero3,
             this.ProximoFinCocinero3,
+            this.ColaCocinero3,
             this.EstadoDelivery,
             this.PedidoDelivery,
             this.TiempoEntregaDelivery,
-            this.FinProximaEntregaDelivery});
+            this.FinProximaEntregaDelivery,
+            this.ColaDelivery});
             this.dataGridView1.Location = new System.Drawing.Point(12, 312);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -148,6 +152,7 @@
             this.start.TabIndex = 6;
             this.start.Text = "Simular";
             this.start.UseVisualStyleBackColor = false;
+            this.start.Click += new System.EventHandler(this.start_Click);
             // 
             // txt_iteraciones
             // 
@@ -275,15 +280,20 @@
             this.PedidoCocinero3.HeaderText = "Pedido";
             this.PedidoCocinero3.Name = "PedidoCocinero3";
             // 
-            // TiempoPrepacionCocinero3
+            // TiempoPreparacionCocinero3
             // 
-            this.TiempoPrepacionCocinero3.HeaderText = "Tiempo Preparacion";
-            this.TiempoPrepacionCocinero3.Name = "TiempoPrepacionCocinero3";
+            this.TiempoPreparacionCocinero3.HeaderText = "Tiempo Preparacion";
+            this.TiempoPreparacionCocinero3.Name = "TiempoPreparacionCocinero3";
             // 
             // ProximoFinCocinero3
             // 
-            this.ProximoFinCocinero3.HeaderText = "ProximoFin";
+            this.ProximoFinCocinero3.HeaderText = "Proximo Fin de Preparacion";
             this.ProximoFinCocinero3.Name = "ProximoFinCocinero3";
+            // 
+            // ColaCocinero3
+            // 
+            this.ColaCocinero3.HeaderText = "Cola";
+            this.ColaCocinero3.Name = "ColaCocinero3";
             // 
             // EstadoDelivery
             // 
@@ -304,6 +314,11 @@
             // 
             this.FinProximaEntregaDelivery.HeaderText = "Fin Proxima Entrega";
             this.FinProximaEntregaDelivery.Name = "FinProximaEntregaDelivery";
+            // 
+            // ColaDelivery
+            // 
+            this.ColaDelivery.HeaderText = "Cola Delivery";
+            this.ColaDelivery.Name = "ColaDelivery";
             // 
             // Pantalla
             // 
@@ -352,12 +367,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColaCocinero2;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCocinero3;
         private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCocinero3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoPrepacionCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoPreparacionCocinero3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProximoFinCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColaCocinero3;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDelivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn PedidoDelivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoEntregaDelivery;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinProximaEntregaDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColaDelivery;
     }
 }
 

@@ -19,10 +19,10 @@ namespace TP5.Entidades.Pedidos
         private dynamic[,] acumuladas;
         private Random rand;
 
-        protected double costo;
-        protected double demora;
-        protected double cantidad;
-        protected string nombre;
+        public double costo;
+        public double demora;
+        public double cantidad;
+        public string nombre;
 
         protected Generador generador;
         //private EstadoPedido estadoPedido;

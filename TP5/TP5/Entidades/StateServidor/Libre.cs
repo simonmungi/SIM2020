@@ -9,6 +9,16 @@ namespace TP5.Entidades.StateServidor
 {
     class Libre : EstadoServidor
     {
+        public Libre()
+        {
+            nombre = "Libre";
+        }
+
+        public override bool esLibre()
+        {
+            return true;
+        }
+
         public override bool liberar(Servidor serv, List<Pedido> pedidos)
         {
             //logica de paso de estado
