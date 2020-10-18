@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cantSim = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.clear = new System.Windows.Forms.Button();
             this.start = new System.Windows.Forms.Button();
             this.txt_iteraciones = new System.Windows.Forms.TextBox();
@@ -37,7 +38,31 @@
             this.iteracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reloj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.NumeroPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProximoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoEntrePedidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoProximoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoCocinero1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidoCocinero1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoPreparacionCocinero1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProximoFinCocinero1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColaCocinero1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidoCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoPreparacionCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProximoFinCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColaCocinero2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidoCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoPrepacionCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProximoFinCocinero3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PedidoDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoEntregaDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinProximaEntregaDelivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cantSim.SuspendLayout();
             this.SuspendLayout();
@@ -48,10 +73,36 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iteracion,
             this.evento,
-            this.reloj});
+            this.reloj,
+            this.NumeroPedido,
+            this.ProximoPedido,
+            this.TiempoEntrePedidos,
+            this.TiempoProximoPedido,
+            this.TipoPedido,
+            this.Cantidad,
+            this.Costo,
+            this.EstadoCocinero1,
+            this.PedidoCocinero1,
+            this.TiempoPreparacionCocinero1,
+            this.ProximoFinCocinero1,
+            this.ColaCocinero1,
+            this.EstadoCocinero2,
+            this.PedidoCocinero2,
+            this.TiempoPreparacionCocinero2,
+            this.ProximoFinCocinero2,
+            this.ColaCocinero2,
+            this.EstadoCocinero3,
+            this.PedidoCocinero3,
+            this.TiempoPrepacionCocinero3,
+            this.ProximoFinCocinero3,
+            this.EstadoDelivery,
+            this.PedidoDelivery,
+            this.TiempoEntregaDelivery,
+            this.FinProximaEntregaDelivery});
             this.dataGridView1.Location = new System.Drawing.Point(12, 312);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(933, 425);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(1346, 425);
             this.dataGridView1.TabIndex = 0;
             // 
             // cantSim
@@ -67,6 +118,16 @@
             this.cantSim.TabIndex = 2;
             this.cantSim.TabStop = false;
             this.cantSim.Text = "Simulacion";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(11, 64);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(142, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Usar valores por defecto";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // clear
             // 
@@ -119,15 +180,130 @@
             this.reloj.HeaderText = "Reloj";
             this.reloj.Name = "reloj";
             // 
-            // checkBox1
+            // NumeroPedido
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 64);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(142, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Usar valores por defecto";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.NumeroPedido.HeaderText = "Numero de Pedido";
+            this.NumeroPedido.Name = "NumeroPedido";
+            // 
+            // ProximoPedido
+            // 
+            this.ProximoPedido.HeaderText = "Proximo Pedido";
+            this.ProximoPedido.Name = "ProximoPedido";
+            // 
+            // TiempoEntrePedidos
+            // 
+            this.TiempoEntrePedidos.HeaderText = "Tiempo entre pedidos";
+            this.TiempoEntrePedidos.Name = "TiempoEntrePedidos";
+            // 
+            // TiempoProximoPedido
+            // 
+            this.TiempoProximoPedido.HeaderText = "Tiempo Proximo Pedido";
+            this.TiempoProximoPedido.Name = "TiempoProximoPedido";
+            // 
+            // TipoPedido
+            // 
+            this.TipoPedido.HeaderText = "Tipo Pedido";
+            this.TipoPedido.Name = "TipoPedido";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            // 
+            // EstadoCocinero1
+            // 
+            this.EstadoCocinero1.HeaderText = "Estado";
+            this.EstadoCocinero1.Name = "EstadoCocinero1";
+            // 
+            // PedidoCocinero1
+            // 
+            this.PedidoCocinero1.HeaderText = "Pedido";
+            this.PedidoCocinero1.Name = "PedidoCocinero1";
+            // 
+            // TiempoPreparacionCocinero1
+            // 
+            this.TiempoPreparacionCocinero1.HeaderText = "Tiempo Preparacion";
+            this.TiempoPreparacionCocinero1.Name = "TiempoPreparacionCocinero1";
+            // 
+            // ProximoFinCocinero1
+            // 
+            this.ProximoFinCocinero1.HeaderText = "Proximo Fin de Preparacion";
+            this.ProximoFinCocinero1.Name = "ProximoFinCocinero1";
+            // 
+            // ColaCocinero1
+            // 
+            this.ColaCocinero1.HeaderText = "Cola";
+            this.ColaCocinero1.Name = "ColaCocinero1";
+            // 
+            // EstadoCocinero2
+            // 
+            this.EstadoCocinero2.HeaderText = "Estado";
+            this.EstadoCocinero2.Name = "EstadoCocinero2";
+            // 
+            // PedidoCocinero2
+            // 
+            this.PedidoCocinero2.HeaderText = "Pedido";
+            this.PedidoCocinero2.Name = "PedidoCocinero2";
+            // 
+            // TiempoPreparacionCocinero2
+            // 
+            this.TiempoPreparacionCocinero2.HeaderText = "Tiempo Preparacion";
+            this.TiempoPreparacionCocinero2.Name = "TiempoPreparacionCocinero2";
+            // 
+            // ProximoFinCocinero2
+            // 
+            this.ProximoFinCocinero2.HeaderText = "Proximo Fin de Preparacion";
+            this.ProximoFinCocinero2.Name = "ProximoFinCocinero2";
+            // 
+            // ColaCocinero2
+            // 
+            this.ColaCocinero2.HeaderText = "Cola";
+            this.ColaCocinero2.Name = "ColaCocinero2";
+            // 
+            // EstadoCocinero3
+            // 
+            this.EstadoCocinero3.HeaderText = "Estado";
+            this.EstadoCocinero3.Name = "EstadoCocinero3";
+            // 
+            // PedidoCocinero3
+            // 
+            this.PedidoCocinero3.HeaderText = "Pedido";
+            this.PedidoCocinero3.Name = "PedidoCocinero3";
+            // 
+            // TiempoPrepacionCocinero3
+            // 
+            this.TiempoPrepacionCocinero3.HeaderText = "Tiempo Preparacion";
+            this.TiempoPrepacionCocinero3.Name = "TiempoPrepacionCocinero3";
+            // 
+            // ProximoFinCocinero3
+            // 
+            this.ProximoFinCocinero3.HeaderText = "ProximoFin";
+            this.ProximoFinCocinero3.Name = "ProximoFinCocinero3";
+            // 
+            // EstadoDelivery
+            // 
+            this.EstadoDelivery.HeaderText = "Estado";
+            this.EstadoDelivery.Name = "EstadoDelivery";
+            // 
+            // PedidoDelivery
+            // 
+            this.PedidoDelivery.HeaderText = "Pedido";
+            this.PedidoDelivery.Name = "PedidoDelivery";
+            // 
+            // TiempoEntregaDelivery
+            // 
+            this.TiempoEntregaDelivery.HeaderText = "Tiempo Entrega";
+            this.TiempoEntregaDelivery.Name = "TiempoEntregaDelivery";
+            // 
+            // FinProximaEntregaDelivery
+            // 
+            this.FinProximaEntregaDelivery.HeaderText = "Fin Proxima Entrega";
+            this.FinProximaEntregaDelivery.Name = "FinProximaEntregaDelivery";
             // 
             // Pantalla
             // 
@@ -148,15 +324,40 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iteracion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn evento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
         private System.Windows.Forms.GroupBox cantSim;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button start;
         private System.Windows.Forms.TextBox txt_iteraciones;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iteracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn evento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reloj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProximoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoEntrePedidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoProximoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCocinero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCocinero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoPreparacionCocinero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProximoFinCocinero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColaCocinero1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCocinero2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCocinero2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoPreparacionCocinero2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProximoFinCocinero2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColaCocinero2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoPrepacionCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProximoFinCocinero3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PedidoDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoEntregaDelivery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinProximaEntregaDelivery;
     }
 }
 
