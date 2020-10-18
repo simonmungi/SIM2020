@@ -4,20 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP5.Entidades.Pedido
+namespace TP5.Entidades.Pedidos
 {
-    class Hamburguesa : Pedido
+    class Lomito : Pedido
     {
-        double costoHamburguesa = 400;
+        double costoLomito = 450;
 
-        public Hamburguesa()
+        public Lomito()
         {
-            nombre = "Hamburguesa";
+            nombre = "Lomito";
             calcularCantidad();
             calcularDemora();
-            costo = costoHamburguesa * cantidad;
+            costo = cantidad * costoLomito;
         }
-
         public override void calcularCantidad()
         {
             cantidad = 1;

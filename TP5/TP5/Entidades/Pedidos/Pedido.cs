@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using TP5.Generadores;
 
-namespace TP5.Entidades.Pedido
+namespace TP5.Entidades.Pedidos
 {
     public class Pedido
     {

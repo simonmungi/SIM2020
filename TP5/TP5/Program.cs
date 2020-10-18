@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP5.Entidades;
-using TP5.Entidades.Pedido;
+using TP5.Entidades.Pedidos;
 using TP5.Generadores;
 
 namespace TP5

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP5.Entidades;
 
 namespace TP5
 {
@@ -18,10 +19,12 @@ namespace TP5
         public void simular(int iteraciones)
         {
             //Inicializo objetos
-            /*
-             * Servidor serv1 = new Servidor();
-             
-             */
+            Servidor cocinero1 = new Cocinero();
+            Servidor cocinero2 = new Cocinero();
+            Servidor cocinero3 = new Cocinero();
+            Servidor delivery = new Delivery();
+
+
 
             //Vectores de estado
             /*
@@ -29,6 +32,7 @@ namespace TP5
              * dynamic[] actual
               
              */
+
             //Columnas
             /*
              * int iteracion = 0;
@@ -36,6 +40,8 @@ namespace TP5
              
              
              */
+
+            //inicializacion
 
 
         }

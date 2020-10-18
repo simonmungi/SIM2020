@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TP5.Generadores;
 
-namespace TP5.Entidades.Pedido
+namespace TP5.Entidades.Pedidos
 {
     class Pizza : Pedido
     {

@@ -46,19 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Evento\Evento.cs" />
-    <Compile Include="Entidades\Evento\FinPreparacionServ1.cs" />
-    <Compile Include="Entidades\Evento\FinPreparacionServ2.cs" />
-    <Compile Include="Entidades\Evento\FinPreparacionServ3.cs" />
-    <Compile Include="Entidades\Evento\FinTurno.cs" />
-    <Compile Include="Entidades\Evento\InicioTurno.cs" />
-    <Compile Include="Entidades\Evento\NuevoPedido.cs" />
-    <Compile Include="Entidades\Pedido\Empanada.cs" />
-    <Compile Include="Entidades\Pedido\Hamburguesa.cs" />
-    <Compile Include="Entidades\Pedido\Lomito.cs" />
-    <Compile Include="Entidades\Pedido\Pedido.cs" />
-    <Compile Include="Entidades\Pedido\Pizza.cs" />
-    <Compile Include="Entidades\Pedido\Sandwich.cs" />
+    <Compile Include="Entidades\Cocinero.cs" />
+    <Compile Include="Entidades\Delivery.cs" />
+    <Compile Include="Entidades\Eventos\Evento.cs" />
+    <Compile Include="Entidades\Eventos\FinPreparacionServ.cs" />
+    <Compile Include="Entidades\Eventos\FinTurno.cs" />
+    <Compile Include="Entidades\Eventos\InicioTurno.cs" />
+    <Compile Include="Entidades\Eventos\NuevoPedido.cs" />
+    <Compile Include="Entidades\Pedidos\Empanada.cs" />
+    <Compile Include="Entidades\Pedidos\Hamburguesa.cs" />
+    <Compile Include="Entidades\Pedidos\Lomito.cs" />
+    <Compile Include="Entidades\Pedidos\Pedido.cs" />
+    <Compile Include="Entidades\Pedidos\Pizza.cs" />
+    <Compile Include="Entidades\Pedidos\Sandwich.cs" />
     <Compile Include="Entidades\Servidor.cs" />
     <Compile Include="Entidades\StatePedido\Cancelado.cs" />
     <Compile Include="Entidades\StatePedido\EnProceso.cs" />
