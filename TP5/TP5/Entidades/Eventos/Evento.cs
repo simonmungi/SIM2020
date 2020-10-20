@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medallion.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,7 @@ namespace TP5.Entidades.Eventos
 
 
 
-        //public abstract void ocurrir(ref dynamic[] vector, PriorityQueue<Evento> eventos, Servidor emp1, Servidor emp2, Servidor emp3, List<Pedido> pedidos);
+        public abstract void ocurrir(ref dynamic[] vector, PriorityQueue<Evento> eventos, Servidor emp1, Servidor emp2, Servidor emp3,Servidor del, List<Pedido> pedidos);
     }
 
     class EventoComp : IComparer<Evento>

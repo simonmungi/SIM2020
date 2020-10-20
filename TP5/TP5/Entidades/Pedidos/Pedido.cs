@@ -10,6 +10,7 @@ namespace TP5.Entidades.Pedidos
 {
     public class Pedido
     {
+        private double lambda = 5;//pedidos por hora
         private double probSandwich = 0.2;
         private double probPizza = 0.4;
         private double probEmpanadas = 0.3;
@@ -34,6 +35,11 @@ namespace TP5.Entidades.Pedidos
             rand = new Random();
         }
 
+        public double calcularTiempoEntrePedidos()
+        {
+            generador = new Poisson();
+            return generador.generar(lambda)/60; //pedidos por minuto para que se cumpla los 5 por hora
+        }
 
         public Pedido siguientePedido()
         {
@@ -68,7 +74,7 @@ namespace TP5.Entidades.Pedidos
             }
         }
 
-        public dynamic[,] obtenerAcumuladas()
+        private dynamic[,] obtenerAcumuladas()
         {
             dynamic[] probabilidades = { probSandwich, probPizza, probEmpanadas, probHamburguesa, probLomito };
             dynamic[,] probAcumuladas = new dynamic[5, 3] { {"sandwich",0,0},

@@ -19,6 +19,11 @@ namespace TP5.Entidades
             estado = new Libre();
         }
 
+        public bool prepara(double tiempo)
+        {
+            return estado.ocupar(this, tiempo);
+        }
+
 
     }
 }

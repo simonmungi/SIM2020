@@ -21,13 +21,18 @@ namespace TP5.Entidades.StateServidor
 
         public override bool liberar(Servidor serv, List<Pedido> pedidos)
         {
-            //logica de paso de estado
+
             throw new NotImplementedException();
         }
 
+        //si de libre pasa a ocupado devuelve true
         public override bool ocupar(Servidor serv, double tiempo)
         {
-            throw new NotImplementedException();
+            serv.estado = new Ocupado();
+            serv.hora_ocupacion = tiempo;
+            //inicio la cola
+            //cola =0
+            return true;
         }
     }
 }
